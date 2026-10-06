@@ -55,12 +55,12 @@ def all_patterns() -> list[str]:
     return [r["pattern"] for r in load_d1()] + load_d5() + EXTRA_PATTERNS
 
 
-def kernel_matcher(make: Callable[[Node], object]) -> Callable[[str], Callable[[str, str], bool]]:
+def kernel_matcher(make: Callable[[Node], object], profile: str = "cpython") -> Callable[[str], Callable[[str, str], bool]]:
     """Wrap a core->Kernel factory into pattern -> match(text, mode), applying anchors and the
     Python ``$`` rule exactly as the governor does (T4.7)."""
     def factory(p: str) -> Callable[[str, str], bool]:
         parsed = parse(p)
-        kernel = make(core_of(p))
+        kernel = make(core_of(p, profile))
 
         def match(text: str, mode: str) -> bool:
             start_any, end_any = _FLAGS[mode]

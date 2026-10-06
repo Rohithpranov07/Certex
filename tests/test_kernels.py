@@ -56,3 +56,65 @@ def test_lazy_dfa_cache_bounded_and_amortised():
     _, cold = k2.run("a" * 500 + "b")
     _, warm = k2.run("a" * 500 + "b")
     assert warm < cold and warm <= 502
+
+
+import random
+
+from certex.backend.kernels import (
+    AhoCorasick,
+    WordBreak,
+    literal_strings,
+    word_break_words,
+)
+
+DICT_PATTERNS = ["abc|def|ghi", "a", "abc", "ab|abc|b", "", "a|", "x|yy|yyy", "he|she|his|hers",
+                 "^(?:ab|abc)$", "abc$", "^abc", "aa|a"]
+WB_PATTERNS = ["(ab|cd)+", "(ab|cd)*", "(abc)*", "(abc)+", "(a|b)+", "(ab|abab)+", "(a|aa)*",
+               "(abc|ab|c)+"]
+
+
+def _aho(core):
+    words = literal_strings(core)
+    assert words is not None
+    return AhoCorasick(words)
+
+
+def test_differential_aho_corasick():
+    cases, bad = differential_run(kernel_matcher(_aho, "none"), DICT_PATTERNS)
+    assert bad == 0 and cases > 0
+
+
+def test_literal_strings_recognition():
+    assert literal_strings(core_of("abc|def")) == ["abc", "def"]
+    assert literal_strings(core_of("abc")) == ["abc"]
+    assert literal_strings(core_of("a|b|c", "none")) == ["a", "b", "c"]
+    assert literal_strings(core_of("a+")) is None
+    assert literal_strings(core_of("[ab]c")) is None
+    assert literal_strings(core_of(".a")) is None
+
+
+def test_word_break_recognition():
+    assert word_break_words(core_of("(ab|cd)+")) == (["ab", "cd"], False)
+    assert word_break_words(core_of("(abc)*")) == (["abc"], True)
+    assert word_break_words(core_of("(a|)+")) is None
+    assert word_break_words(core_of("ab+")) is None
+
+
+def test_differential_word_break():
+    rng = random.Random(7)
+    bad = total = 0
+    for p in WB_PATTERNS:
+        core = core_of(p, "none")
+        wb = word_break_words(core)
+        assert wb is not None, p
+        kernel = WordBreak(*wb)
+        alpha = "".join(sorted({c for c in p if c.isalpha()}))
+        strings = ["", *("".join(rng.choice(alpha) for _ in range(rng.randint(0, 12)))
+                         for _ in range(400))]
+        for s in strings:
+            total += 1
+            bad += kernel.run(s)[0] != (re.fullmatch(p, s, re.ASCII) is not None)
+    print(f"{total} cases, {bad} disagreements")
+    assert bad == 0
+    with pytest.raises(NotImplementedError):
+        WordBreak(["a"], False).run("a", end_any=True)
