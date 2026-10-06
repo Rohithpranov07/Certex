@@ -1,0 +1,396 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"11.0.24\" 2024-07-16 LTS"
+    },
+    "seed": 7,
+    "date": "2026-10-06"
+  },
+  "rows": [
+    {
+      "pattern": "(a+)+$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(a|a)*$",
+      "label": "EXP",
+      "star_height_flag": false,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(a*)*$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(\\w+\\s?)*$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(\\w+)*@",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(x+x+)+y",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "([a-z]+)*$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(a|aa)+$",
+      "label": "EXP",
+      "star_height_flag": false,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(.*a)+$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^(\\d+)*$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "([a-zA-Z0-9]+\\s?)*$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(\\d*\\.?\\d*)*$",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+      "label": "EXP",
+      "star_height_flag": true,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(a|b|ab)*c",
+      "label": "EXP",
+      "star_height_flag": false,
+      "certex_none": "EXP",
+      "certex_cpython": "EXP",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "a*a*$",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": ".*a.*b",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "\\s*\\s*,",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "\\d+\\d+x",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "[a-z]*[a-z0-9]*!",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "a*b?a*$",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(a*)(a*)(a*)$",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "\\w*\\d+$",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^.*=.*;$",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "x*.*x*$",
+      "label": "POLY",
+      "star_height_flag": false,
+      "certex_none": "POLY",
+      "certex_cpython": "POLY",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^\\d+$",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "abc|def|ghi",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(ab|cd)+e",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "\\d+\\.\\d+",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^[a-z]+@[a-z]+\\.com$",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(a|b)*c",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "[0-9]{3}-[0-9]{4}",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^(\\d{1,3}\\.){3}\\d{1,3}$",
+      "label": "LIN",
+      "star_height_flag": true,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^[A-Z][a-z]+$",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(abc)*d",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "colou?r",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^#[0-9a-f]{6}$",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "a+b+c+",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(ab)+",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "x(y|z)*w",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^[^,]*,[^,]*$",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "\\s*,\\s*",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "label": "LIN",
+      "star_height_flag": true,
+      "certex_none": "LIN",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    },
+    {
+      "pattern": "(0|[0-9])+$",
+      "label": "LIN",
+      "star_height_flag": false,
+      "certex_none": "EXP",
+      "certex_cpython": "LIN",
+      "certex_cpython_correct": true
+    }
+  ],
+  "summary": {
+    "star_height": {
+      "tp": 11,
+      "fp": 2,
+      "fn": 13,
+      "tn": 17,
+      "n": 43,
+      "accuracy": 0.6512,
+      "precision": 0.8462,
+      "recall": 0.4583,
+      "f1": 0.5946
+    },
+    "certex_none": {
+      "tp": 24,
+      "fp": 1,
+      "fn": 0,
+      "tn": 18,
+      "n": 43,
+      "accuracy": 0.9767,
+      "precision": 0.96,
+      "recall": 1.0,
+      "f1": 0.9796
+    },
+    "certex_cpython": {
+      "tp": 24,
+      "fp": 0,
+      "fn": 0,
+      "tn": 19,
+      "n": 43,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "labels_exact": 43
+    },
+    "timing_baseline": "see e1_timing_baseline.json (machine dependent)"
+  }
+}

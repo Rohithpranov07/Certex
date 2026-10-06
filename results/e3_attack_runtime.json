@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"11.0.24\" 2024-07-16 LTS"
+    },
+    "seed": 7,
+    "date": "2026-10-06"
+  },
+  "rows": {
+    "patterns": [
+      {
+        "pattern": "(a+)+$",
+        "length": 25,
+        "kernel": "lazy-dfa",
+        "cpython_s": 0.5375748330261558,
+        "cpython_hung": false,
+        "certex_s": 1.3125012628734112e-05,
+        "certex_steps": 25
+      },
+      {
+        "pattern": "(a|a)*$",
+        "length": 24,
+        "kernel": "lazy-dfa",
+        "cpython_s": 0.5309961669845507,
+        "cpython_hung": false,
+        "certex_s": 1.2042000889778137e-05,
+        "certex_steps": 24
+      },
+      {
+        "pattern": "(\\w+\\s?)*$",
+        "length": 25,
+        "kernel": "lazy-dfa",
+        "cpython_s": 0.9857183339772746,
+        "cpython_hung": false,
+        "certex_s": 1.1625001206994057e-05,
+        "certex_steps": 25
+      },
+      {
+        "pattern": "(x+x+)+y",
+        "length": 25,
+        "kernel": "lazy-dfa",
+        "cpython_s": 0.7245658750180155,
+        "cpython_hung": false,
+        "certex_s": 1.1708005331456661e-05,
+        "certex_steps": 25
+      },
+      {
+        "pattern": "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+        "length": 23,
+        "kernel": "lazy-dfa",
+        "cpython_s": 0.5078632909571752,
+        "cpython_hung": false,
+        "certex_s": 1.225003506988287e-05,
+        "certex_steps": 23
+      },
+      {
+        "pattern": "(a|aa)+$",
+        "length": 36,
+        "kernel": "lazy-dfa",
+        "cpython_s": 1.2781342499656603,
+        "cpython_hung": false,
+        "certex_s": 1.2332922779023647e-05,
+        "certex_steps": 36
+      }
+    ],
+    "series": [
+      {
+        "k": 12,
+        "length": 13,
+        "cpython_s": 0.00013175001367926598,
+        "certex_s": 1.1040945537388325e-05,
+        "certex_steps": 13
+      },
+      {
+        "k": 13,
+        "length": 14,
+        "cpython_s": 0.00026616593822836876,
+        "certex_s": 1.0249903425574303e-05,
+        "certex_steps": 14
+      },
+      {
+        "k": 14,
+        "length": 15,
+        "cpython_s": 0.0005319591145962477,
+        "certex_s": 1.0167015716433525e-05,
+        "certex_steps": 15
+      },
+      {
+        "k": 15,
+        "length": 16,
+        "cpython_s": 0.0010493339505046606,
+        "certex_s": 1.0291929356753826e-05,
+        "certex_steps": 16
+      },
+      {
+        "k": 16,
+        "length": 17,
+        "cpython_s": 0.002094542025588453,
+        "certex_s": 1.016608439385891e-05,
+        "certex_steps": 17
+      },
+      {
+        "k": 17,
+        "length": 18,
+        "cpython_s": 0.0042085410095751286,
+        "certex_s": 1.0124989785254002e-05,
+        "certex_steps": 18
+      },
+      {
+        "k": 18,
+        "length": 19,
+        "cpython_s": 0.008336290949955583,
+        "certex_s": 1.0083895176649094e-05,
+        "certex_steps": 19
+      },
+      {
+        "k": 19,
+        "length": 20,
+        "cpython_s": 0.016684749978594482,
+        "certex_s": 1.0124989785254002e-05,
+        "certex_steps": 20
+      },
+      {
+        "k": 20,
+        "length": 21,
+        "cpython_s": 0.03333599993493408,
+        "certex_s": 1.025001984089613e-05,
+        "certex_steps": 21
+      },
+      {
+        "k": 21,
+        "length": 22,
+        "cpython_s": 0.06657916703261435,
+        "certex_s": 1.025001984089613e-05,
+        "certex_steps": 22
+      },
+      {
+        "k": 22,
+        "length": 23,
+        "cpython_s": 0.13375937496311963,
+        "certex_s": 1.037493348121643e-05,
+        "certex_steps": 23
+      },
+      {
+        "k": 23,
+        "length": 24,
+        "cpython_s": 0.2652248750673607,
+        "certex_s": 1.0415911674499512e-05,
+        "certex_steps": 24
+      },
+      {
+        "k": 24,
+        "length": 25,
+        "cpython_s": 0.5312760829692706,
+        "certex_s": 1.0500079952180386e-05,
+        "certex_steps": 25
+      },
+      {
+        "k": 25,
+        "length": 26,
+        "cpython_s": 1.0636800830252469,
+        "certex_s": 1.0582967661321163e-05,
+        "certex_steps": 26
+      },
+      {
+        "k": 26,
+        "length": 27,
+        "cpython_s": 2.142368125030771,
+        "certex_s": 1.066701952368021e-05,
+        "certex_steps": 27
+      }
+    ]
+  },
+  "summary": {
+    "six_patterns": 6,
+    "series_points": 15,
+    "note": "six patterns chosen from D1; series is (a+)+$ on a^k b"
+  }
+}

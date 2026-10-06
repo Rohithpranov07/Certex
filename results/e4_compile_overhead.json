@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"11.0.24\" 2024-07-16 LTS"
+    },
+    "seed": 7,
+    "date": "2026-10-06"
+  },
+  "rows": [
+    {
+      "target": 5,
+      "pattern": "d*dd",
+      "m": 5,
+      "mean_ms": 0.0919,
+      "degree": "LIN"
+    },
+    {
+      "target": 5,
+      "pattern": "(?:[ab]+)+c",
+      "m": 5,
+      "mean_ms": 0.1285,
+      "degree": "EXP"
+    },
+    {
+      "target": 5,
+      "pattern": "(?:b.+)*",
+      "m": 5,
+      "mean_ms": 0.1027,
+      "degree": "EXP"
+    },
+    {
+      "target": 5,
+      "pattern": "(?:d[ab]*)+",
+      "m": 5,
+      "mean_ms": 0.1173,
+      "degree": "LIN"
+    },
+    {
+      "target": 5,
+      "pattern": "\\d*|a*",
+      "m": 5,
+      "mean_ms": 0.0947,
+      "degree": "LIN"
+    },
+    {
+      "target": 10,
+      "pattern": "(?:b[ab]d)(?:a(?:.*)+)",
+      "m": 8,
+      "mean_ms": 0.1218,
+      "degree": "EXP"
+    },
+    {
+      "target": 10,
+      "pattern": "(?:a*|\\d|a)(?:c|.|[ab])",
+      "m": 10,
+      "mean_ms": 0.2014,
+      "degree": "LIN"
+    },
+    {
+      "target": 10,
+      "pattern": "(?:(?:a*)+a+)a*a",
+      "m": 9,
+      "mean_ms": 0.1867,
+      "degree": "EXP"
+    },
+    {
+      "target": 10,
+      "pattern": "(?:(?:(?:(?:.|[ab]|[ab])*cb)*)+)*",
+      "m": 11,
+      "mean_ms": 0.5225,
+      "degree": "EXP"
+    },
+    {
+      "target": 10,
+      "pattern": "c(?:a+)*|[ab]|c|\\d",
+      "m": 9,
+      "mean_ms": 0.1387,
+      "degree": "EXP"
+    },
+    {
+      "target": 20,
+      "pattern": "(?:a[ab])[ab]+|(?:(?:(?:c|\\d|d)+|(?:(?:(?:c|.|\\d)+)*)+)+)+",
+      "m": 18,
+      "mean_ms": 1.9338,
+      "degree": "EXP"
+    },
+    {
+      "target": 20,
+      "pattern": "(?:(?:\\d*(?:.+|.|\\d)*)\\db)*|..\\d|\\d|a|.",
+      "m": 20,
+      "mean_ms": 0.6458,
+      "degree": "EXP"
+    },
+    {
+      "target": 20,
+      "pattern": "(?:(?:c|(?:(?:bd+)+|(?:[ab]b)*|.|b*|a)*)+)+",
+      "m": 19,
+      "mean_ms": 3.2949,
+      "degree": "EXP"
+    },
+    {
+      "target": 20,
+      "pattern": "(?:(?:a.)+|d|.+(?:.\\d))(?:c(?:.|[ab]|d)a*)",
+      "m": 19,
+      "mean_ms": 0.3747,
+      "degree": "LIN"
+    },
+    {
+      "target": 20,
+      "pattern": "(?:d*|(?:(?:\\d*d)+)+)(?:d(?:[ab]+)*b|b|d)*",
+      "m": 20,
+      "mean_ms": 0.4783,
+      "degree": "EXP"
+    },
+    {
+      "target": 40,
+      "pattern": "(?:[ab](?:(?:(?:a+)*)+)*|\\d+|d*|(?:(?:c(?:[ab]*a))*|dbb|a)+)(?:(?:[ab]*)*[ab]|\\dbd|(?:d*)*)",
+      "m": 39,
+      "mean_ms": 1.5239,
+      "degree": "EXP"
+    },
+    {
+      "target": 40,
+      "pattern": "(?:(?:(?:(?:(?:b+)+)*(?:a|d+)+|\\d|a)(?:c|d|b|d+|b*|d*)+(?:c+|(?:b+|[ab]cc)*))+)+",
+      "m": 38,
+      "mean_ms": 10.4164,
+      "degree": "EXP"
+    },
+    {
+      "target": 40,
+      "pattern": "(?:(?:(?:(?:c|(?:aad|[ab])+|(?:ca\\d)+\\d|.|[ab]|c|(?:\\d|\\d)+(?:(?:.*)*)*)+|(?:a*)*(?:cc)\\d)+)*)+",
+      "m": 42,
+      "mean_ms": 135.9678,
+      "degree": "EXP"
+    },
+    {
+      "target": 40,
+      "pattern": "(?:(?:(?:b|b.)[ab]+(?:(?:[ab]+|(?:(?:(?:..a)c).)*)+|a|.|b))*(?:(?:c+|[ab]|[ab]|[ab])+(?:c+)*))*",
+      "m": 35,
+      "mean_ms": 5.004,
+      "degree": "EXP"
+    },
+    {
+      "target": 40,
+      "pattern": "(?:a+(?:.[ab])a+|(?:[ab][ab]b)b|(?:ac+)*)(?:(?:a(?:.|\\d*)*).|a(?:\\d|c)c*)(?:bd)",
+      "m": 34,
+      "mean_ms": 0.8855,
+      "degree": "EXP"
+    },
+    {
+      "target": 60,
+      "pattern": "(?:(?:d+(?:b+b)(?:\\d|a|.)|(?:.[ab])+)+(?:(?:.*b(?:[ab]|d))*|.+|c|\\d))(?:(?:(?:(?:dbc)(?:[ab]|[ab]|b))*(?:b+|d+|\\daa))+(?:a|.*|[ab])+)",
+      "m": 51,
+      "mean_ms": 5.7356,
+      "degree": "EXP"
+    },
+    {
+      "target": 60,
+      "pattern": "c|.|(?:(?:.(?:\\da).|b|(?:\\d*[ab]*|[ab]|d|.)*)+|(?:(?:(?:b+(?:[ab]*c+)*|a+)+)+)+)(?:b|a|(?:d[ab][ab])(?:(?:.c)(?:[ab]*)*))|d*|d",
+      "m": 53,
+      "mean_ms": 7.8299,
+      "degree": "EXP"
+    },
+    {
+      "target": 60,
+      "pattern": "(?:[ab]*)+d*\\d*|(?:[ab]*|a)*|(?:(?:(?:(?:(?:(?:d|a)+\\d+(?:.+|[ab]|b+|a|(?:.c+)*))+)+)+|db)(?:(?:[ab]c).*))(?:b*|d*)|.|.*",
+      "m": 51,
+      "mean_ms": 1.5081,
+      "degree": "EXP"
+    },
+    {
+      "target": 60,
+      "pattern": "(?:b+)+|[ab]*|(?:(?:.+)*|(?:a+d+)+|(?:c|a)(?:(?:.[ab])*a*)|(?:(?:(?:(?:cd)*)+)+)*)(?:\\d|\\d|.|b*|[ab]*|(?:.\\d|a|[ab][ab])+)",
+      "m": 49,
+      "mean_ms": 3.2841,
+      "degree": "EXP"
+    },
+    {
+      "target": 60,
+      "pattern": "(?:(?:(?:(?:(?:da)\\d)+|\\d)(?:(?:(?:[ab]*a*)\\d)(?:(?:c|\\d)+|a)[ab]+))+(?:d+\\d*))(?:(?:\\d+|d+(?:(?:[ab]+b)*)+|c|b|.|c|c)*|.|b+)*",
+      "m": 48,
+      "mean_ms": 10.305,
+      "degree": "EXP"
+    }
+  ],
+  "summary": {
+    "5": {
+      "patterns": 5,
+      "mean_ms": 0.107,
+      "worst_ms": 0.1285
+    },
+    "10": {
+      "patterns": 5,
+      "mean_ms": 0.2342,
+      "worst_ms": 0.5225
+    },
+    "20": {
+      "patterns": 5,
+      "mean_ms": 1.3455,
+      "worst_ms": 3.2949
+    },
+    "40": {
+      "patterns": 5,
+      "mean_ms": 30.7595,
+      "worst_ms": 135.9678
+    },
+    "60": {
+      "patterns": 5,
+      "mean_ms": 5.7325,
+      "worst_ms": 10.305
+    }
+  }
+}

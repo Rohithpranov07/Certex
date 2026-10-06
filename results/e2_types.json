@@ -1,0 +1,1296 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"11.0.24\" 2024-07-16 LTS"
+    },
+    "seed": 11,
+    "date": "2026-10-06"
+  },
+  "rows": [
+    {
+      "pattern": "ddb",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "db",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "dc",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a|a)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d|b|a)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a|a)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "b*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "b*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "a*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "d+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "c+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "d+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "cdad",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "acccaad",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "daabb",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d|d|d)(?:b|c)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c|c)(?:d|a)(?:b|a)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d|d)(?:b|d)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "b*d*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "a*d*d*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "a*c*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "a+b+b+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "a+a+b+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "d+c+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:cda|ab)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:cc|bdb)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:bc|bb|bd)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|a)|(?:a|a)|(?:b|d|c))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|b|a)|(?:b|d)|(?:c|b))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|c)|(?:d|b|a))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b*|c*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b*|a*|c*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d*|c*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a+|a+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c+|c+|a+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a+|d+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:cc)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:aa)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:cab)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c|a|d)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d|a)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a|d|d)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:cdd)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:daa)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:ada)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a|d)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c|a|c)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b|b|b)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "bbdcbdcacddbdd",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "caaaccabdacbadabbcbaabb",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "dbdddddccbabdcc",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a|a|d)(?:d|c|d)(?:a|d)(?:b|c)(?:b|d|d)(?:b|d)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c|d|b)(?:b|c|d)(?:a|a|d)(?:a|d)(?:a|b|a)(?:d|d|c)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b|c|d)(?:c|a|b)(?:a|c|b)(?:b|b)(?:a|c)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "b*d*a*a*c*b*a*d*d*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "b*b*b*c*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "c*b*b*a*b*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "a+c+a+d+d+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "d+a+b+c+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "c+b+d+a+a+d+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:ab|bc)(?:bd|ac)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:cdb|aab|dd)(?:dbb|ac|db)(?:cab|bcc|bdb)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:cda|ca)(?:ccb|bad)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:(?:d|a)|(?:a|b))(?:(?:d|a|b)|(?:a|a|c)|(?:c|c|d))(?:(?:a|a|d)|(?:d|d))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|d)|(?:c|d|c)|(?:c|d|c))(?:(?:a|a|b)|(?:b|d)|(?:a|c|d))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|d)|(?:c|b|a)|(?:d|b))(?:(?:a|d)|(?:a|b|a))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a*|c*)(?:b*|d*|d*)(?:d*|c*|b*)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:b*|d*)(?:c*|c*)(?:c*|b*|c*)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:b*|b*)(?:a*|a*)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d+|a+|a+)(?:b+|c+)(?:a+|b+)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d+|d+|c+)(?:c+|c+)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:a+|a+)(?:b+|d+|d+)(?:d+|b+|c+)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:cbd)*(?:adc)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:dd)*(?:caa)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:ac)*(?:ccb)*(?:cc)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c|d)*(?:d|c|d)*(?:b|d|b)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c|a|c)*(?:d|b|c)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:b|b)*(?:d|c)*(?:b|a)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c*)*(?:a*)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:a*)*(?:c*)*(?:a*)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:a*)*(?:c*)*(?:a*)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:a+)*(?:a+)*(?:b+)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d+)*(?:b+)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d+)*(?:c+)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:ccc)+(?:dd)+(?:ad)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:da)+(?:aca)+(?:dd)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:bd)+(?:cb)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c|c|a)+(?:c|a|c)+(?:b|a)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d|a)+(?:a|b|b)+(?:b|b|d)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:b|c|d)+(?:c|d)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d*)+(?:d*)+(?:c*)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d*)+(?:b*)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:a*)+(?:b*)+(?:b*)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c+)+(?:a+)+(?:b+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d+)+(?:c+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b+)+(?:d+)+(?:b+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:bcbabb|bbcc|dacbd)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:badbcc|acdcaad)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:addca|bbdccacb|accdcd)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|a)(?:b|b)|(?:a|d|a)(?:b|a)|(?:d|d)(?:c|d))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|d)(?:d|a|d)|(?:a|c)(?:b|c|c)(?:a|d|b))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|c)(?:b|c|b)(?:b|a)|(?:b|b)(?:d|c|c)|(?:c|d|a)(?:b|b|a))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c*b*|a*c*|b*c*b*)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d*a*|b*b*c*)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:b*b*|d*a*b*|a*d*b*)",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c+b+|a+a+b+|d+a+d+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d+c+d+|d+d+a+|c+d+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c+a+|d+d+c+|a+b+a+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:ada|cd)|(?:cd|bd)|(?:ab|da))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:acb|dd)|(?:cb|ca|ccc)|(?:db|ca|cc))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:bb|aa)|(?:cdb|dda|bc)|(?:cb|cc))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:(?:c|b)|(?:c|b))|(?:(?:a|d|a)|(?:a|c))|(?:(?:a|b|c)|(?:b|b)|(?:a|b|b)))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:(?:a|d|a)|(?:a|c)|(?:d|a|c))|(?:(?:a|d)|(?:d|c)))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:(?:b|d|c)|(?:b|a)|(?:b|c|b))|(?:(?:d|d|c)|(?:a|a)))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b*|a*)|(?:d*|a*|c*))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*|b*|d*)|(?:b*|b*|d*)|(?:a*|c*|d*))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b*|a*|b*)|(?:b*|b*|d*)|(?:a*|b*))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a+|d+)|(?:d+|d+|a+)|(?:b+|c+))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+|d+)|(?:a+|b+|c+)|(?:c+|b+|a+))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a+|c+|b+)|(?:d+|b+|d+))",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:bd)*|(?:bbb)*|(?:bdb)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:ddd)*|(?:db)*|(?:daa)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:cab)*|(?:dbc)*|(?:ca)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|b|a)*|(?:c|d)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|c)*|(?:a|c|d)*|(?:d|a)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|a)*|(?:c|d)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d*)*|(?:b*)*|(?:c*)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d*)*|(?:d*)*|(?:b*)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c*)*|(?:d*)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+)*|(?:d+)*|(?:c+)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a+)*|(?:c+)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c+)*|(?:b+)*|(?:b+)*)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:da)+|(?:abc)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:bca)+|(?:add)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:dcc)+|(?:cbb)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|b)+|(?:b|a|c)+|(?:b|d|c)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|a)+|(?:a|d|c)+|(?:d|d)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|c|a)+|(?:a|c)+|(?:c|c|c)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d*)+|(?:d*)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c*)+|(?:a*)+|(?:b*)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*)+|(?:d*)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a+)+|(?:c+)+|(?:a+)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d+)+|(?:d+)+|(?:d+)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+)+|(?:c+)+)",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:cdabccb)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:dada)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:caabdbbb)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|c|d)(?:c|d|b)(?:c|c))*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|a)(?:c|a))*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|b|d)(?:a|c|c)(?:d|c|c))*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c*b*c*)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:b*d*)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c*b*)*",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:b+d+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b+b+a+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b+c+c+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:ddb|ba|bc)*",
+      "expected": "WORDBREAK",
+      "got": "WORDBREAK"
+    },
+    {
+      "pattern": "(?:dc|db|acd)*",
+      "expected": "WORDBREAK",
+      "got": "WORDBREAK"
+    },
+    {
+      "pattern": "(?:dd|db|bdb)*",
+      "expected": "WORDBREAK",
+      "got": "WORDBREAK"
+    },
+    {
+      "pattern": "(?:(?:d|d|a)|(?:c|a))*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|d)|(?:c|b|a)|(?:b|c|c))*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|a)|(?:a|a|b))*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d*|b*|b*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d*|a*|d*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d*|a*|b*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c+|b+|c+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d+|a+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a+|b+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:ac)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:aca)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:aba)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|c|b)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|c|a)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|d|c)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b*)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c+)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d+)*)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:ccd)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:cca)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:acc)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|b)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|c)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|c)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b*)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b*)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c+)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c+)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+)+)*",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:addabab)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:acdbdbca)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:bcadacd)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|d)(?:d|d|d)(?:d|a))+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d|c|a)(?:c|b))+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|c|b)(?:d|a|b)(?:a|b|b))+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a*a*)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c*a*b*)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:c*c*)+",
+      "expected": "HARD",
+      "got": "HARD"
+    },
+    {
+      "pattern": "(?:d+b+a+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b+d+c+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a+a+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:bad|ab|bac)+",
+      "expected": "WORDBREAK",
+      "got": "WORDBREAK"
+    },
+    {
+      "pattern": "(?:bca|bda)+",
+      "expected": "WORDBREAK",
+      "got": "WORDBREAK"
+    },
+    {
+      "pattern": "(?:aab|bdd|cc)+",
+      "expected": "WORDBREAK",
+      "got": "WORDBREAK"
+    },
+    {
+      "pattern": "(?:(?:b|b)|(?:b|d)|(?:b|c))+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|c|c)|(?:a|a))+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|d|b)|(?:a|c))+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c*|d*|c*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:b*|a*|a*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d*|b*|d*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:c+|a+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:a+|d+|b+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:d+|b+|d+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:da)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:dcc)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:cca)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|d)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|c|d)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|c|a)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d*)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a+)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c+)*)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:ca)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:abd)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:cb)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:c|d|a)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a|d)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b|a|a)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:a*)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d*)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d*)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:b+)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    },
+    {
+      "pattern": "(?:(?:d+)+)+",
+      "expected": "EASY",
+      "got": "EASY"
+    }
+  ],
+  "summary": {
+    "correct": 252,
+    "total": 252,
+    "recall_by_class": {
+      "EASY": {
+        "correct": 201,
+        "total": 201,
+        "recall": 1.0
+      },
+      "HARD": {
+        "correct": 45,
+        "total": 45,
+        "recall": 1.0
+      },
+      "WORDBREAK": {
+        "correct": 6,
+        "total": 6,
+        "recall": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"11.0.24\" 2024-07-16 LTS"
+    },
+    "seed": 7,
+    "date": "2026-10-06"
+  },
+  "rows": [
+    {
+      "pattern": "(a)*c",
+      "base_label": null,
+      "raw_type": "o*",
+      "normalised_type": "o*",
+      "class": "HARD",
+      "bound": "(nm)^(1-o(1)) under SETH",
+      "degree": "LIN",
+      "kernel": "shift-and"
+    },
+    {
+      "pattern": "A*b",
+      "base_label": null,
+      "raw_type": "o*",
+      "normalised_type": "o*",
+      "class": "HARD",
+      "bound": "(nm)^(1-o(1)) under SETH",
+      "degree": "LIN",
+      "kernel": "shift-and"
+    },
+    {
+      "pattern": "(ab|cd)+e",
+      "base_label": null,
+      "raw_type": "o+|o",
+      "normalised_type": "o+|o",
+      "class": "HARD",
+      "bound": "(nm)^(1-o(1)) under SETH",
+      "degree": "LIN",
+      "kernel": "shift-and"
+    },
+    {
+      "pattern": "Ab+c",
+      "base_label": null,
+      "raw_type": "o+",
+      "normalised_type": "o+",
+      "class": "EASY",
+      "bound": "O~(n)+O(m)",
+      "degree": "LIN",
+      "kernel": "lazy-dfa"
+    },
+    {
+      "pattern": "A|b",
+      "base_label": null,
+      "raw_type": "",
+      "normalised_type": "",
+      "class": "EASY",
+      "bound": "O~(n)+O(m)",
+      "degree": "LIN",
+      "kernel": "lazy-dfa"
+    },
+    {
+      "pattern": "(a|ab)*b",
+      "base_label": null,
+      "raw_type": "o*o|",
+      "normalised_type": "o*o|",
+      "class": "HARD",
+      "bound": "(nm)^(1-o(1)) under SETH",
+      "degree": "LIN",
+      "kernel": "shift-and"
+    },
+    {
+      "pattern": "[0-9]+",
+      "base_label": null,
+      "raw_type": "+",
+      "normalised_type": "+",
+      "class": "EASY",
+      "bound": "O~(n)+O(m)",
+      "degree": "LIN",
+      "kernel": "lazy-dfa"
+    },
+    {
+      "pattern": "(abc)*d",
+      "base_label": null,
+      "raw_type": "o*o",
+      "normalised_type": "o*o",
+      "class": "HARD",
+      "bound": "(nm)^(1-o(1)) under SETH",
+      "degree": "LIN",
+      "kernel": "shift-and"
+    },
+    {
+      "pattern": "^([A-Z])([a-z])+$",
+      "base_label": null,
+      "raw_type": "o+",
+      "normalised_type": "o+",
+      "class": "EASY",
+      "bound": "O~(n)+O(m)",
+      "degree": "LIN",
+      "kernel": "lazy-dfa"
+    }
+  ],
+  "summary": {
+    "patterns": 9,
+    "note": "base_label is empty where the base paper's label is not recorded in the project data"
+  }
+}

@@ -38,7 +38,8 @@ SEED = 7
 # project documents, so these are chosen from D1 (the walkthrough uses the 2nd and 5th).
 E3_PATTERNS = [r"(a+)+$", r"(a|a)*$", r"(\w+\s?)*$", r"(x+x+)+y",
                r"^([a-z0-9]+[-_.]?)*[a-z0-9]+@", r"(a|aa)+$"]
-E3_LENGTH = 24
+E3_MAX_LENGTH = 48
+E3_TARGET_S = 0.5
 E3_SERIES = range(12, 27)
 E4_SIZES = (5, 10, 20, 40, 60)
 
@@ -197,15 +198,23 @@ def e3_attack_runtime() -> dict[str, Any]:
         a = c.ambiguity.attack if c.ambiguity else None
         if a is None:
             continue
+        inputs = []
         k = 1
-        while len(a.build(k + 1)) <= E3_LENGTH:
+        while len(a.build(k)) <= E3_MAX_LENGTH:
+            inputs.append(a.build(k))
             k += 1
-        text = a.build(k)
-        rep = time_inputs("cpython", p, [text], per_input_limit=60.0, wall=30.0)
+        # Grow the attack until CPython needs E3_TARGET_S seconds (or the length cap is hit).
+        rep = time_inputs("cpython", p, inputs, per_input_limit=E3_TARGET_S, wall=30.0)
+        if rep.points:
+            text = inputs[len(rep.points) - 1]
+            cpython_s: float | None = rep.points[-1][1]
+        else:
+            text = inputs[min(len(rep.points), len(inputs) - 1)]
+            cpython_s = None
         cert_s, steps = _best_certex_seconds(c, text)
         rows.append({"pattern": p, "length": len(text), "kernel": c.choice.kernel.name,
-                     "cpython_s": rep.points[0][1] if rep.points else None,
-                     "cpython_hung": rep.hung, "certex_s": cert_s, "certex_steps": steps})
+                     "cpython_s": cpython_s, "cpython_hung": rep.hung,
+                     "certex_s": cert_s, "certex_steps": steps})
     series = []
     c = certex.compile(r"(a+)+$")
     inputs = ["a" * k + "b" for k in E3_SERIES]

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"11.0.24\" 2024-07-16 LTS"
+    },
+    "seed": 1,
+    "date": "2026-10-06"
+  },
+  "rows": [],
+  "summary": {
+    "cases": 64800,
+    "disagreements": 0,
+    "patterns": 72,
+    "per_mode": {
+      "full": {
+        "cases": 21600,
+        "disagreements": 0
+      },
+      "match": {
+        "cases": 21600,
+        "disagreements": 0
+      },
+      "search": {
+        "cases": 21600,
+        "disagreements": 0
+      }
+    }
+  }
+}
