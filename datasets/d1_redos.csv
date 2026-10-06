@@ -1,0 +1,44 @@
+pattern,label,note
+"(a+)+$",EXP,nested quantifier
+"(a|a)*$",EXP,duplicate branch
+"(a*)*$",EXP,nested star
+"(\w+\s?)*$",EXP,word list
+"(\w+)*@",EXP,email local part
+"(x+x+)+y",EXP,adjacent loops in loop
+"([a-z]+)*$",EXP,nested class loop
+"(a|aa)+$",EXP,overlapping alternation
+"(.*a)+$",EXP,dot-star in loop
+"^(\d+)*$",EXP,digits nested
+"([a-zA-Z0-9]+\s?)*$",EXP,alnum words
+"(\d*\.?\d*)*$",EXP,decimal nested
+"^([a-z0-9]+[-_.]?)*[a-z0-9]+@",EXP,email validator
+"(a|b|ab)*c",EXP,overlapping alternation
+"a*a*$",POLY,adjacent loops
+".*a.*b",POLY,dot-star pair
+"\s*\s*,",POLY,adjacent spaces
+"\d+\d+x",POLY,adjacent digits
+"[a-z]*[a-z0-9]*!",POLY,overlapping classes
+"a*b?a*$",POLY,optional between loops
+"(a*)(a*)(a*)$",POLY,cubic
+"\w*\d+$",POLY,word then digits
+"^.*=.*;$",POLY,key=value
+"x*.*x*$",POLY,cubic via newline: . excludes \n (prototype mislabelled LIN)
+"^\d+$",LIN,digits
+"abc|def|ghi",LIN,dictionary
+"(ab|cd)+e",LIN,word break plus
+"\d+\.\d+",LIN,decimal
+"^[a-z]+@[a-z]+\.com$",LIN,simple email
+"(a|b)*c",LIN,class loop
+"[0-9]{3}-[0-9]{4}",LIN,phone
+"^(\d{1,3}\.){3}\d{1,3}$",LIN,ipv4
+"^[A-Z][a-z]+$",LIN,capitalised word
+"(abc)*d",LIN,loop of word
+"colou?r",LIN,optional letter
+"^#[0-9a-f]{6}$",LIN,hex colour
+"a+b+c+",LIN,disjoint loops
+"(ab)+",LIN,loop of pair
+"x(y|z)*w",LIN,class loop
+"^[^,]*,[^,]*$",LIN,csv pair
+"\s*,\s*",LIN,separator
+"^[a-z]+(-[a-z]+)*$",LIN,slug
+"(0|[0-9])+$",LIN,merged by CPython

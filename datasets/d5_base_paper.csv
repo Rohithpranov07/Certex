@@ -1,0 +1,10 @@
+pattern,base_label
+(a)*c,
+A*b,
+(ab|cd)+e,
+Ab+c,
+A|b,
+(a|ab)*b,
+[0-9]+,
+(abc)*d,
+^([A-Z])([a-z])+$,
