@@ -219,7 +219,8 @@ def _pr(n: Node, ctx: int) -> str:
     if n.op == GROUP:
         return "(" + _pr(n.kids[0], 0) + ")"
     if n.op == ALT:
-        s = "|".join(_pr(k, 0) for k in n.kids)
+        # a nested alternation keeps its own group, or it would flatten on re-parsing
+        s = "|".join(_pr(k, 1) if k.op == ALT else _pr(k, 0) for k in n.kids)
         return f"(?:{s})" if ctx >= 1 else s
     if n.op == CAT:
         parts: list[str] = []

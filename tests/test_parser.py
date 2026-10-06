@@ -76,3 +76,58 @@ def test_structure():
     assert parse("a|b").tree.op == ALT
     assert parse("(a+)+").tree.op == GROUP or parse("(a+)+").tree.op == PLUS
     assert parse("").tree.op == "eps"
+
+
+# ---- property tests (T6.1) -------------------------------------------------------------------
+import re
+
+from hypothesis import given, settings
+from hypothesis import strategies as st
+
+_ATOMS = st.sampled_from([
+    "a", "b", "c", "0", " ", "-", "_", r"\.", r"\+", r"\*", r"\(", r"\{", r"\\", r"\n", r"\x41",
+    r"\d", r"\D", r"\w", r"\W", r"\s", r"\S", ".", "[a-c]", "[^ab]", r"[\d_-]", "[-a]", "[]x]",
+    "{", "}", "]",
+])
+_QUANT = st.sampled_from(["", "", "", "*", "+", "?", "{2}", "{1,3}", "{2,}", "{,2}", "{0,1}"])
+
+
+def _wrap(inner: str, kind: int) -> str:
+    return f"({inner})" if kind == 0 else f"(?:{inner})"
+
+
+def _pattern(depth: int) -> st.SearchStrategy[str]:
+    atom = _ATOMS
+    if depth > 0:
+        sub = _pattern(depth - 1)
+        atom = st.one_of(atom, st.builds(_wrap, sub, st.integers(0, 1)))
+    rep = st.builds(lambda a, q: a + q if q == "" or a not in ("{", "}", "]") else a, atom, _QUANT)
+    cat = st.lists(rep, min_size=0, max_size=3).map("".join)
+    return st.lists(cat, min_size=1, max_size=3).map("|".join)
+
+
+PATTERNS = _pattern(3)
+
+
+def _roundtrip(p: str) -> None:
+    try:
+        first = parse(p)
+    except ParseError:
+        return
+    printed = to_pattern(first.tree)
+    again = parse(printed)
+    assert again.tree == first.tree, (p, printed)
+    re.compile(printed)
+
+
+@settings(max_examples=500, deadline=None)
+@given(PATTERNS)
+def test_roundtrip(p):
+    _roundtrip(p)
+
+
+@pytest.mark.slow
+@settings(max_examples=10000, deadline=None)
+@given(PATTERNS)
+def test_roundtrip_slow(p):
+    _roundtrip(p)
