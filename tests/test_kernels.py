@@ -177,7 +177,7 @@ def test_synth_row5_and_row6():
     assert big.kernel.name == "lazy-dfa" and big.fallback.name == "bitparallel-glushkov"
 
 
-import certex  # noqa: E402
+import certex
 
 
 def _e2e_factory(p):

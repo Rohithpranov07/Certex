@@ -80,3 +80,45 @@ def test_backreference_matching():
     c = certex.compile(r"(\w+)\s\1")
     assert run(c, "hello hello").matched and not run(c, "hello world").matched
     assert run(c, "say hello hello x", "search").matched
+
+
+# ---- fault injection (T4.9) ----------------------------------------------------------------
+import re
+import time
+
+from certex.backend.kernels import BitParallelGlushkov
+
+from .conftest import core_of, load_d1
+
+EXP_PATTERNS = [r["pattern"] for r in load_d1() if r["label"] == "EXP"]
+
+
+@pytest.mark.parametrize("p", EXP_PATTERNS)
+def test_fault_injection(p):
+    c = certex.compile(p)
+    assert c.degree == "EXP" and c.ambiguity is not None and c.ambiguity.attack is not None
+    attack = c.ambiguity.attack
+    text = attack.build(200)
+    # A reference result that cannot blow up: the unbudgeted bit-parallel Glushkov kernel.
+    expected = BitParallelGlushkov(core_of(p)).run(text)[0]
+
+    t0 = time.perf_counter()
+    r = run(c, text, "full", on_overrun="fallback", budget_override=10)
+    assert time.perf_counter() - t0 < 1.0
+    assert r.fell_back and r.matched == expected
+
+    t0 = time.perf_counter()
+    with pytest.raises(BudgetExceeded):
+        run(c, text, "full", on_overrun="reject", budget_override=10)
+    assert time.perf_counter() - t0 < 1.0
+
+    # Python re agrees with the reference on a short pump (the long one would not terminate).
+    short = attack.build(4)
+    assert (re.fullmatch(p, short, re.ASCII) is not None) == run(c, short).matched
+
+
+def test_fault_injection_tampered_certificate():
+    c = certex.compile(EXP_PATTERNS[0])
+    c.certificate["budget"]["power"] = 0
+    with pytest.raises(CertificateInvalid):
+        run(c, "a" * 200)
