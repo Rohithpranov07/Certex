@@ -39,3 +39,42 @@ def test_desugar_shapes():
     assert to_pattern(desugar(parse("ab?").tree)) == "a(?:b|)"
     assert to_pattern(desugar(parse("a{1,3}").tree)) == "a(?:a|)(?:a|)"
     assert to_pattern(desugar(parse("a{0}").tree)) == ""
+
+
+# ---- engine profiles ------------------------------------------------------------------
+import pytest
+
+from certex.profiles import get_profile
+
+from .conftest import load_d1, load_d5
+
+
+def _prof(p: str, name: str = "cpython") -> str:
+    return to_pattern(get_profile(name)(parse(p).tree))
+
+
+def test_profile_rewrites():
+    assert _prof("(0|[0-9])+") == "([0123456789])+"
+    assert _prof("(a|a)*") == "(a(?:|))*"
+    assert _prof("(ab|ac)") == "(a[bc])"
+    assert _prof("(.|a)") == "(.|a)"
+    assert _prof("([^a]|b)") == "([^a]|b)"
+    assert _prof("(?:a|b)c") == "[ab]c"
+    assert _prof("(0|[0-9])+", "none") == "(0|[0123456789])+"
+
+
+def test_profile_registry():
+    assert get_profile("pcre2")(parse("a|b").tree) == parse("a|b").tree
+    assert get_profile("java")(parse("a|b").tree) == parse("a|b").tree
+    with pytest.raises(ValueError, match="cpython"):
+        get_profile("nope")
+
+
+def test_profile_preserves_language_on_d1():
+    rng = random.Random(5)
+    bad = 0
+    for p in [r["pattern"] for r in load_d1()] + load_d5():
+        q = _prof(p)
+        for s in _strings(rng, p, 200):
+            bad += (re.fullmatch(p, s, re.ASCII) is None) != (re.fullmatch(q, s, re.ASCII) is None)
+    assert bad == 0
