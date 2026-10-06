@@ -62,3 +62,47 @@ def test_glushkov_structure():
 @pytest.mark.parametrize("p", ["(a)\\1", "a?"])
 def test_bref_and_opt_build(p):
     Glushkov(core_of(p))
+
+
+def _edges_on(core_pattern: str):
+    from certex.analysis.automata import Thompson, path_preserving
+    ppn = path_preserving(Thompson(core_of(core_pattern)))
+    return ppn
+
+
+def test_path_preserving_plus_plus_has_two_edges():
+    ppn = _edges_on("(a+)+")
+    loop_edges = [e for es in ppn.edges.values() for e in es]
+    dup = [es for es in ppn.edges.values()
+           if len(es) >= 2 and len({(cs, tgt) for cs, tgt, _ in es}) < len(es)]
+    assert dup, loop_edges
+    assert any(len(es) == 2 and es[0][1] == es[1][1] and es[0][2] != es[1][2]
+               for es in ppn.edges.values())
+
+
+def test_path_preserving_alt_star_has_no_duplicate_labels():
+    ppn = _edges_on("(a|b)*")
+    for es in ppn.edges.values():
+        keys = [(cs, tgt) for cs, tgt, _ in es]
+        assert len(keys) == len(set(keys))
+
+
+def test_path_limit():
+    from certex.analysis.automata import PathLimitExceeded, Thompson, path_preserving
+    t = Thompson(core_of("((a|b)(c|d)|e)*" + "(a|b|c)*" * 6))
+    with pytest.raises(PathLimitExceeded):
+        path_preserving(t, max_paths=3)
+
+
+def test_thompson_language_via_path_preserving():
+    from certex.analysis.automata import Thompson, path_preserving
+    rng = random.Random(2)
+    bad = 0
+    for p in [r["pattern"] for r in load_d1()]:
+        ppn = path_preserving(Thompson(core_of(p)))
+        for s in rand_strings(rng, p, 100):
+            cur = {ppn.start}
+            for c in s:
+                cur = {tgt for q in cur for cs, tgt, _ in ppn.edges[q] if cs.contains(c)}
+            bad += bool(cur & ppn.accept) != (re.fullmatch(p, s, re.ASCII) is not None)
+    assert bad == 0
