@@ -79,6 +79,8 @@ class BitParallelGlushkov(Kernel):
                 return True, steps
             if not states and not start_any:
                 return False, steps
+        if start_any:
+            states |= 1                  # an empty match may also start at the end of the text
         return bool(states & accept), steps
 
 

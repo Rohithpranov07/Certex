@@ -28,3 +28,12 @@ def test_empty_pattern():
     k = BitParallelGlushkov(core_of(""))
     assert k.run("")[0] and not k.run("a")[0] and k.run("a", end_any=True)[0]
     assert re.fullmatch("", "")
+
+
+from .conftest import all_patterns, differential_run, kernel_matcher
+
+
+def test_differential_glushkov():
+    cases, bad = differential_run(kernel_matcher(BitParallelGlushkov), all_patterns())
+    assert cases >= 50000
+    assert bad == 0
