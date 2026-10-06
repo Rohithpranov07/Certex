@@ -84,4 +84,57 @@ class BitParallelGlushkov(Kernel):
         return bool(states & accept), steps
 
 
-__all__ = ["START", "BitParallelGlushkov", "BudgetExceeded", "Kernel"]
+class LazyDFA(BitParallelGlushkov):
+    """Bit-parallel Glushkov with a cache of ``(state_mask, char) -> next_mask`` transitions.
+
+    steps = 1 per character, plus the popcount of the state on a cache miss. The cache is
+    cleared when it reaches ``max_cache`` entries, so memory stays bounded; if it thrashes the
+    cost degrades to that of the underlying bit-parallel kernel, never worse.
+    """
+
+    def __init__(self, core: Node, max_cache: int = 10000) -> None:
+        super().__init__(core)
+        self.name = "lazy-dfa"
+        self.max_cache = max_cache
+        self._cache: dict[tuple[int, str], int] = {}
+
+    def run(self, text: str, start_any: bool = False, end_any: bool = False,
+            budget: int | None = None) -> tuple[bool, int]:
+        accept = self._accept
+        follow = self._follow
+        cache = self._cache
+        states = 1
+        steps = 0
+        if end_any and states & accept:
+            return True, steps
+        for c in text:
+            if start_any:
+                states |= 1
+            key = (states, c)
+            nxt = cache.get(key)
+            if nxt is None:
+                nxt = 0
+                s = states
+                while s:
+                    low = s & -s
+                    nxt |= follow[low.bit_length() - 1]
+                    s ^= low
+                    steps += 1
+                nxt &= self._char_mask(c)
+                if len(cache) >= self.max_cache:
+                    cache.clear()
+                cache[key] = nxt
+            states = nxt
+            steps += 1
+            if budget is not None and steps > budget:
+                raise BudgetExceeded(self.name, steps, budget)
+            if end_any and states & accept:
+                return True, steps
+            if not states and not start_any:
+                return False, steps
+        if start_any:
+            states |= 1
+        return bool(states & accept), steps
+
+
+__all__ = ["START", "BitParallelGlushkov", "BudgetExceeded", "Kernel", "LazyDFA"]

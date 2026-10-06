@@ -37,3 +37,22 @@ def test_differential_glushkov():
     cases, bad = differential_run(kernel_matcher(BitParallelGlushkov), all_patterns())
     assert cases >= 50000
     assert bad == 0
+
+
+from certex.backend.kernels import LazyDFA
+
+
+def test_differential_lazy():
+    cases, bad = differential_run(kernel_matcher(LazyDFA), all_patterns())
+    assert cases >= 50000 and bad == 0
+
+
+def test_lazy_dfa_cache_bounded_and_amortised():
+    k = LazyDFA(core_of("(a+)+$"), max_cache=4)
+    text = "a" * 2000 + "b"
+    assert k.run(text)[0] is False
+    assert len(k._cache) <= 4
+    k2 = LazyDFA(core_of("(a+)+$"))
+    _, cold = k2.run("a" * 500 + "b")
+    _, warm = k2.run("a" * 500 + "b")
+    assert warm < cold and warm <= 502
