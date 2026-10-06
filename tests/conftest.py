@@ -35,6 +35,11 @@ def core_of(p: str, profile: str = "cpython") -> Node:
     return strip_groups(desugar(get_profile(profile)(parse(p).tree)))
 
 
+def tree_of(p: str, profile: str = "cpython") -> Node:
+    """Desugared tree with capture groups kept."""
+    return desugar(get_profile(profile)(parse(p).tree))
+
+
 # ---- differential oracle (T3.2) -----------------------------------------------------------
 import random
 import re
@@ -55,12 +60,13 @@ def all_patterns() -> list[str]:
     return [r["pattern"] for r in load_d1()] + load_d5() + EXTRA_PATTERNS
 
 
-def kernel_matcher(make: Callable[[Node], object], profile: str = "cpython") -> Callable[[str], Callable[[str, str], bool]]:
+def kernel_matcher(make: Callable[[Node], object], profile: str = "cpython",
+                   grouped: bool = False) -> Callable[[str], Callable[[str, str], bool]]:
     """Wrap a core->Kernel factory into pattern -> match(text, mode), applying anchors and the
     Python ``$`` rule exactly as the governor does (T4.7)."""
     def factory(p: str) -> Callable[[str, str], bool]:
         parsed = parse(p)
-        kernel = make(core_of(p, profile))
+        kernel = make(tree_of(p, profile) if grouped else core_of(p, profile))
 
         def match(text: str, mode: str) -> bool:
             start_any, end_any = _FLAGS[mode]

@@ -10,7 +10,7 @@ from __future__ import annotations
 from collections import deque
 
 from certex.analysis.automata import START, Glushkov
-from certex.frontend.ir import ALT, CAT, EPS, LIT, PLUS, STAR, Node
+from certex.frontend.ir import ALT, BREF, CAT, EPS, GROUP, LIT, PLUS, STAR, Node
 
 
 class BudgetExceeded(RuntimeError):
@@ -294,7 +294,138 @@ class WordBreak(Kernel):
         return reach[n], steps
 
 
+# Pike VM instructions: ("char", CharSet) ("split", x, y) ("jmp", x) ("save", slot)
+# ("bref", slot) ("match",)
+_Inst = tuple[object, ...]
+_Caps = tuple[int | None, ...]
+
+
+class PikeVM(Kernel):
+    """Pike VM with backreferences (MFA-k): no backtracking, threads de-duplicated per position.
+
+    Instructions are ``char, split, jmp, save, bref, match``; ``save`` is emitted only for
+    *referenced* groups. A thread is ``(pc, caps)`` and threads are de-duplicated on that pair
+    at each text position, so there are at most ``|prog| * (n+1)^(2k)`` live states per
+    position (k = number of referenced groups). A backreference to a group that did not
+    participate kills the thread (Python semantics); an empty capture is an ε-move; a
+    non-empty one schedules the thread at ``i + len(sub)``.
+    """
+
+    name = "pike-vm-mfa"
+
+    def __init__(self, tree: Node, referenced: tuple[int, ...]) -> None:
+        self.slot = {g: 2 * i for i, g in enumerate(referenced)}
+        self.ncaps = 2 * len(referenced)
+        self.prog: list[_Inst] = []
+        self._emit(tree)
+        self.prog.append(("match",))
+        self.m = len(self.prog)
+
+    def _emit(self, n: Node) -> None:
+        prog = self.prog
+        if n.op == LIT:
+            prog.append(("char", n.cs))
+        elif n.op == EPS:
+            pass
+        elif n.op == CAT:
+            for k in n.kids:
+                self._emit(k)
+        elif n.op == ALT:
+            jumps: list[int] = []
+            for k in n.kids[:-1]:
+                split = len(prog)
+                prog.append(("split", split + 1, -1))
+                self._emit(k)
+                jumps.append(len(prog))
+                prog.append(("jmp", -1))
+                prog[split] = ("split", split + 1, len(prog))
+            self._emit(n.kids[-1])
+            for j in jumps:
+                prog[j] = ("jmp", len(prog))
+        elif n.op == STAR:
+            split = len(prog)
+            prog.append(("split", split + 1, -1))
+            self._emit(n.kids[0])
+            prog.append(("jmp", split))
+            prog[split] = ("split", split + 1, len(prog))
+        elif n.op == PLUS:
+            start = len(prog)
+            self._emit(n.kids[0])
+            prog.append(("split", start, len(prog) + 1))
+        elif n.op == GROUP:
+            slot = self.slot.get(n.group) if n.group is not None else None
+            if slot is not None:
+                prog.append(("save", slot))
+            self._emit(n.kids[0])
+            if slot is not None:
+                prog.append(("save", slot + 1))
+        elif n.op == BREF:
+            assert n.group is not None
+            prog.append(("bref", self.slot[n.group]))
+        else:
+            raise ValueError(f"unsupported operator for the Pike VM: {n.op!r}")
+
+    def run(self, text: str, start_any: bool = False, end_any: bool = False,
+            budget: int | None = None) -> tuple[bool, int]:
+        prog = self.prog
+        n = len(text)
+        steps = 0
+        empty: _Caps = (None,) * self.ncaps
+        incoming: list[list[tuple[int, _Caps]]] = [[] for _ in range(n + 2)]
+        for i in range(n + 1):
+            seen: set[tuple[int, _Caps]] = set()
+            stack = list(reversed(incoming[i]))
+            if start_any or i == 0:
+                stack.insert(0, (0, empty))
+            runnable: list[tuple[int, _Caps]] = []
+            matched = False
+            while stack:
+                pc, caps = stack.pop()
+                if (pc, caps) in seen:
+                    continue
+                seen.add((pc, caps))
+                steps += 1
+                if budget is not None and steps > budget:
+                    raise BudgetExceeded(self.name, steps, budget)
+                inst = prog[pc]
+                op = inst[0]
+                if op == "char":
+                    runnable.append((pc, caps))
+                elif op == "match":
+                    matched = True
+                elif op == "jmp":
+                    stack.append((int(inst[1]), caps))  # type: ignore[call-overload]
+                elif op == "split":
+                    stack.append((int(inst[2]), caps))  # type: ignore[call-overload]
+                    stack.append((int(inst[1]), caps))  # type: ignore[call-overload]
+                elif op == "save":
+                    slot = int(inst[1])  # type: ignore[call-overload]
+                    new = list(caps)
+                    new[slot] = i
+                    stack.append((pc + 1, tuple(new)))
+                elif op == "bref":
+                    slot = int(inst[1])  # type: ignore[call-overload]
+                    a, b = caps[slot], caps[slot + 1]
+                    if a is None or b is None or b < a:
+                        continue
+                    sub = text[a:b]
+                    if not sub:
+                        stack.append((pc + 1, caps))
+                    elif text.startswith(sub, i):
+                        incoming[i + len(sub)].append((pc + 1, caps))
+            if matched and (end_any or i == n):
+                return True, steps
+            if i == n:
+                break
+            c = text[i]
+            for pc, caps in runnable:
+                cs = prog[pc][1]
+                if cs.contains(c):  # type: ignore[attr-defined]
+                    incoming[i + 1].append((pc + 1, caps))
+        return False, steps
+
+
 __all__ = [
     "START", "AhoCorasick", "BitParallelGlushkov", "BudgetExceeded", "Kernel", "LazyDFA",
-    "WordBreak", "literal_strings", "word_break_words",
+    "PikeVM", "WordBreak", "literal_strings", "word_break_words",
 ]

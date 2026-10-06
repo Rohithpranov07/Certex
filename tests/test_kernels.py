@@ -118,3 +118,21 @@ def test_differential_word_break():
     assert bad == 0
     with pytest.raises(NotImplementedError):
         WordBreak(["a"], False).run("a", end_any=True)
+
+
+from certex.analysis.backrefs import analyse_backrefs
+from certex.backend.kernels import PikeVM
+
+BREF_PATTERNS = [r"(a+)\1", r"(\w+)\s\1", r"<(\w+)>.*</\1>", r"(x+)(y+)\1\2", r"((a)b)*\2",
+                 r"(a){2}\1", r"(a|b)?\1", r"(a*)+\1b", r"^(a|b)\1$", r"(a|b)*\1"]
+
+
+def _pike(tree):
+    bv = analyse_backrefs(tree)
+    assert bv is not None
+    return PikeVM(tree, bv.vars)
+
+
+def test_differential_pike():
+    cases, bad = differential_run(kernel_matcher(_pike, grouped=True), BREF_PATTERNS)
+    assert cases > 0 and bad == 0
