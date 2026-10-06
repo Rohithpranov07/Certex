@@ -58,7 +58,8 @@ def _java_command() -> list[str]:
         build.mkdir(parents=True, exist_ok=True)
         subprocess.run([javac, "-d", str(build), str(src)], check=True, capture_output=True,
                        timeout=120)
-    return [shutil.which("java") or "java", "-Xss512m", "-cp", str(build), "ReplayMain"]
+    java = os.environ.get("CERTEX_JAVA") or shutil.which("java") or "java"
+    return [java, "-Xss512m", "-cp", str(build), "ReplayMain"]
 
 
 def _command_and_stdin(engine: str, pattern: str, inputs: list[str],

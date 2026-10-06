@@ -159,8 +159,13 @@ def cmd_bench(args: argparse.Namespace) -> int:
             return EXIT_ERROR
         s = experiments.calibrate(args.engine)
         print(f"{args.engine}: confirmed {s['confirmed']}/{s['total']}")
+        if s["unconfirmed"]:
+            print(f"  with the required literal kept in the suffix: "
+                  f"{s['confirmed'] + s['adapted_confirmed']}/{s['total']}")
         for p in s["unconfirmed"]:
-            print(f"  not confirmed: {p}")
+            print(f"  not confirmed as synthesised: {p}")
+        for p in s["unconfirmed_even_adapted"]:
+            print(f"  not confirmed even adapted:   {p}")
         return EXIT_OK
     if what == "figures":
         from certex.bench import figures

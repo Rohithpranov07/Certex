@@ -1,0 +1,730 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"25.0.1\" 2025-10-21"
+    },
+    "seed": 7,
+    "date": "2026-10-06"
+  },
+  "rows": [
+    {
+      "engine": "cpython",
+      "pattern": "(a+)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 26 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(a|a)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 23 timed input(s), longest 25 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(a*)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 26 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(\\w+\\s?)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 26 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(\\w+)*@",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 25 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(x+x+)+y",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 13 timed input(s), longest 27 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "([a-z]+)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 26 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(a|aa)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 17 timed input(s), longest 36 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(.*a)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 12 timed input(s), longest 26 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "^(\\d+)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 26 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "([a-zA-Z0-9]+\\s?)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 26 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(\\d*\\.?\\d*)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 7 timed input(s), longest 16 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 24 timed input(s), longest 25 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(a|b|ab)*c",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "growth 1.26x per character"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "a*a*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "engine": "cpython",
+      "pattern": ".*a.*b",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "\\s*\\s*,",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.18"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "\\d+\\d+x",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "[a-z]*[a-z0-9]*!",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "a*b?a*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "(a*)(a*)(a*)$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1002 chars"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "\\w*\\d+$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "^.*=.*;$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "engine": "cpython",
+      "pattern": "x*.*x*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 2002 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(a+)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 20 timed input(s), longest 22 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(a|a)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 9 timed input(s), longest 20 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(a*)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 20 timed input(s), longest 22 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(\\w+\\s?)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 20 timed input(s), longest 22 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(\\w+)*@",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "@0",
+      "adapted_confirmed": true,
+      "adapted_evidence": "engine limit after 20 timed input(s), longest 23 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(x+x+)+y",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "yx",
+      "adapted_confirmed": true,
+      "adapted_evidence": "engine limit after 10 timed input(s), longest 23 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "([a-z]+)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 20 timed input(s), longest 22 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(a|aa)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 9 timed input(s), longest 29 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(.*a)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 10 timed input(s), longest 22 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "^(\\d+)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 20 timed input(s), longest 22 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "([a-zA-Z0-9]+\\s?)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 20 timed input(s), longest 22 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(\\d*\\.?\\d*)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "engine limit after 5 timed input(s), longest 12 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "@-",
+      "adapted_confirmed": true,
+      "adapted_evidence": "engine limit after 20 timed input(s), longest 23 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(a|b|ab)*c",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "ca",
+      "adapted_confirmed": true,
+      "adapted_evidence": "engine limit after 18 timed input(s), longest 57 chars"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "a*a*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.57"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": ".*a.*b",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope -1.49",
+      "adapted_suffix": "b\n",
+      "adapted_confirmed": true,
+      "adapted_evidence": "log-log slope 1.98"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "\\s*\\s*,",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope -1.03",
+      "adapted_suffix": ",\t",
+      "adapted_confirmed": true,
+      "adapted_evidence": "log-log slope 1.77"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "\\d+\\d+x",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope -1.00",
+      "adapted_suffix": "x0",
+      "adapted_confirmed": true,
+      "adapted_evidence": "log-log slope 1.72"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "[a-z]*[a-z0-9]*!",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope -1.00",
+      "adapted_suffix": "!!",
+      "adapted_confirmed": true,
+      "adapted_evidence": "log-log slope 1.71"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "a*b?a*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.57"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "(a*)(a*)(a*)$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.76"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "\\w*\\d+$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.73"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "^.*=.*;$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope -1.02",
+      "adapted_suffix": ";\n",
+      "adapted_confirmed": true,
+      "adapted_evidence": "log-log slope 1.97"
+    },
+    {
+      "engine": "pcre2",
+      "pattern": "x*.*x*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.82"
+    },
+    {
+      "engine": "java",
+      "pattern": "(a+)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(a|a)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(a*)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(\\w+\\s?)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(\\w+)*@",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "@0",
+      "adapted_confirmed": false,
+      "adapted_evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(x+x+)+y",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "yx",
+      "adapted_confirmed": false,
+      "adapted_evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "([a-z]+)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(a|aa)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(.*a)+$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "^(\\d+)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "([a-zA-Z0-9]+\\s?)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(\\d*\\.?\\d*)*$",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "growth 1.04x per character"
+    },
+    {
+      "engine": "java",
+      "pattern": "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "@-",
+      "adapted_confirmed": false,
+      "adapted_evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "(a|b|ab)*c",
+      "label": "EXP",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms",
+      "adapted_suffix": "ca",
+      "adapted_confirmed": false,
+      "adapted_evidence": "no step above 1 ms"
+    },
+    {
+      "engine": "java",
+      "pattern": "a*a*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 0.89"
+    },
+    {
+      "engine": "java",
+      "pattern": ".*a.*b",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 0.46",
+      "adapted_suffix": "b\n",
+      "adapted_confirmed": false,
+      "adapted_evidence": "log-log slope 0.35"
+    },
+    {
+      "engine": "java",
+      "pattern": "\\s*\\s*,",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 0.52",
+      "adapted_suffix": ",\t",
+      "adapted_confirmed": false,
+      "adapted_evidence": "log-log slope 0.85"
+    },
+    {
+      "engine": "java",
+      "pattern": "\\d+\\d+x",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 0.88",
+      "adapted_suffix": "x0",
+      "adapted_confirmed": false,
+      "adapted_evidence": "log-log slope 0.48"
+    },
+    {
+      "engine": "java",
+      "pattern": "[a-z]*[a-z0-9]*!",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 1.38",
+      "adapted_suffix": "!!",
+      "adapted_confirmed": false,
+      "adapted_evidence": "log-log slope 0.75"
+    },
+    {
+      "engine": "java",
+      "pattern": "a*b?a*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 0.34"
+    },
+    {
+      "engine": "java",
+      "pattern": "(a*)(a*)(a*)$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 2002 chars"
+    },
+    {
+      "engine": "java",
+      "pattern": "\\w*\\d+$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 0.56"
+    },
+    {
+      "engine": "java",
+      "pattern": "^.*=.*;$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": false,
+      "evidence": "log-log slope 0.31",
+      "adapted_suffix": ";\n",
+      "adapted_confirmed": false,
+      "adapted_evidence": "log-log slope 0.32"
+    },
+    {
+      "engine": "java",
+      "pattern": "x*.*x*$",
+      "label": "POLY",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 2002 chars"
+    }
+  ],
+  "summary": {
+    "cpython": {
+      "engine": "cpython",
+      "confirmed": 24,
+      "total": 24,
+      "rate": 1.0,
+      "adapted_confirmed": 0,
+      "unconfirmed": [],
+      "unconfirmed_even_adapted": []
+    },
+    "java": {
+      "engine": "java",
+      "confirmed": 2,
+      "total": 24,
+      "rate": 0.0833,
+      "adapted_confirmed": 0,
+      "unconfirmed": [
+        "(a+)+$",
+        "(a|a)*$",
+        "(a*)*$",
+        "(\\w+\\s?)*$",
+        "(\\w+)*@",
+        "(x+x+)+y",
+        "([a-z]+)*$",
+        "(a|aa)+$",
+        "(.*a)+$",
+        "^(\\d+)*$",
+        "([a-zA-Z0-9]+\\s?)*$",
+        "(\\d*\\.?\\d*)*$",
+        "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+        "(a|b|ab)*c",
+        "a*a*$",
+        ".*a.*b",
+        "\\s*\\s*,",
+        "\\d+\\d+x",
+        "[a-z]*[a-z0-9]*!",
+        "a*b?a*$",
+        "\\w*\\d+$",
+        "^.*=.*;$"
+      ],
+      "unconfirmed_even_adapted": [
+        "(a+)+$",
+        "(a|a)*$",
+        "(a*)*$",
+        "(\\w+\\s?)*$",
+        "(\\w+)*@",
+        "(x+x+)+y",
+        "([a-z]+)*$",
+        "(a|aa)+$",
+        "(.*a)+$",
+        "^(\\d+)*$",
+        "([a-zA-Z0-9]+\\s?)*$",
+        "(\\d*\\.?\\d*)*$",
+        "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+        "(a|b|ab)*c",
+        "a*a*$",
+        ".*a.*b",
+        "\\s*\\s*,",
+        "\\d+\\d+x",
+        "[a-z]*[a-z0-9]*!",
+        "a*b?a*$",
+        "\\w*\\d+$",
+        "^.*=.*;$"
+      ]
+    },
+    "pcre2": {
+      "engine": "pcre2",
+      "confirmed": 15,
+      "total": 24,
+      "rate": 0.625,
+      "adapted_confirmed": 9,
+      "unconfirmed": [
+        "(\\w+)*@",
+        "(x+x+)+y",
+        "^([a-z0-9]+[-_.]?)*[a-z0-9]+@",
+        "(a|b|ab)*c",
+        ".*a.*b",
+        "\\s*\\s*,",
+        "\\d+\\d+x",
+        "[a-z]*[a-z0-9]*!",
+        "^.*=.*;$"
+      ],
+      "unconfirmed_even_adapted": []
+    }
+  }
+}

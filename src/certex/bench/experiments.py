@@ -13,6 +13,7 @@ import csv
 import datetime
 import importlib.metadata
 import json
+import os
 import platform
 import random
 import re
@@ -24,9 +25,12 @@ from pathlib import Path
 from typing import Any
 
 import certex
+from certex.analysis.ambiguity import Attack, reject_suffix
+from certex.analysis.automata import Glushkov
 from certex.bench import baselines
 from certex.bench.d2 import generate
 from certex.engines.replay import BoundAttack, confirm, time_inputs
+from certex.frontend.ir import CAT, LIT
 from certex.frontend.parser import ParseError
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -78,7 +82,7 @@ def _cpu() -> str:
 
 def _java_version() -> str | None:
     try:
-        out = subprocess.run(["java", "-version"], capture_output=True, text=True, timeout=20, check=False)
+        out = subprocess.run([os.environ.get("CERTEX_JAVA") or "java", "-version"], capture_output=True, text=True, timeout=20, check=False)
         return (out.stderr or out.stdout).splitlines()[0].strip()
     except (OSError, subprocess.SubprocessError, IndexError):
         return None
@@ -358,8 +362,31 @@ def e6_d5() -> dict[str, Any]:
 
 # ---- engine calibration (T5.2) ---------------------------------------------------------------
 
+def _required_literal(c: certex.Compiled) -> str | None:
+    """The single character every match must end with (last element of the core), if any."""
+    last = c.core.kids[-1] if c.core.op == CAT else c.core
+    if last.op == LIT and last.cs is not None and not last.cs.negated and len(last.cs.chars) == 1:
+        return next(iter(last.cs.chars))
+    return None
+
+
+def _adapted_attack(c: certex.Compiled, a: Attack) -> Attack | None:
+    """Attack whose suffix keeps the required literal, then fails: defeats engines that
+    pre-check for the last mandatory literal (e.g. PCRE2's "required code unit")."""
+    lit = _required_literal(c)
+    if lit is None:
+        return None
+    tail = reject_suffix(Glushkov(c.core), a.prefix + a.pump * 8 + lit)
+    return None if tail is None else Attack(a.prefix, a.pump, lit + tail)
+
+
 def calibrate(engine: str) -> dict[str, Any]:
-    """Replay every D1 EXP/POLY attack on ``engine`` (profile = engine) and record the result."""
+    """Replay every D1 EXP/POLY attack on ``engine`` (profile = engine) and record the result.
+
+    For attacks that do not reproduce, a second attack that keeps the pattern's required last
+    literal is replayed (``adapted_*`` fields): it separates "the engine rewrites the pattern"
+    from "the engine short-circuits this particular input".
+    """
     rows: list[dict[str, Any]] = []
     for r in load_d1():
         if r["label"] not in ("EXP", "POLY"):
@@ -371,14 +398,33 @@ def calibrate(engine: str) -> dict[str, Any]:
                          "confirmed": False, "evidence": "profile removed the vulnerability"})
             continue
         res = confirm(c.degree, BoundAttack(r["pattern"], a.prefix, a.pump, a.suffix), engine)
-        rows.append({"pattern": r["pattern"], "label": r["label"], "degree": c.degree,
-                     "confirmed": res["confirmed"], "evidence": res["evidence"]})
+        row: dict[str, Any] = {"pattern": r["pattern"], "label": r["label"],
+                               "degree": c.degree, "confirmed": res["confirmed"],
+                               "evidence": res["evidence"]}
+        if not res["confirmed"]:
+            adapted = _adapted_attack(c, a)
+            if adapted is not None:
+                res2 = confirm(c.degree, BoundAttack(r["pattern"], adapted.prefix, adapted.pump,
+                                                     adapted.suffix), engine)
+                row.update({"adapted_suffix": adapted.suffix,
+                            "adapted_confirmed": res2["confirmed"],
+                            "adapted_evidence": res2["evidence"]})
+        rows.append(row)
     confirmed = sum(x["confirmed"] for x in rows)
     summary = {"engine": engine, "confirmed": confirmed, "total": len(rows),
                "rate": round(confirmed / len(rows), 4) if rows else None,
-               "unconfirmed": [x["pattern"] for x in rows if not x["confirmed"]]}
-    write_result("e7_calibration" if engine != "cpython" else "e7_calibration_cpython",
-                 rows, summary)
+               "adapted_confirmed": sum(bool(x.get("adapted_confirmed")) for x in rows),
+               "unconfirmed": [x["pattern"] for x in rows if not x["confirmed"]],
+               "unconfirmed_even_adapted": [x["pattern"] for x in rows
+                                            if not x["confirmed"]
+                                            and not x.get("adapted_confirmed")]}
+    path = RESULTS / "e7_calibration.json"
+    prior: dict[str, Any] = json.loads(path.read_text()) if path.exists() else {}
+    all_rows = [r for r in prior.get("rows", []) if r.get("engine") != engine]
+    all_rows += [{"engine": engine, **x} for x in rows]
+    all_summary = {k: v for k, v in prior.get("summary", {}).items() if k != engine}
+    all_summary[engine] = summary
+    write_result("e7_calibration", all_rows, dict(sorted(all_summary.items())))
     return summary
 
 
