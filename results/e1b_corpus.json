@@ -1,0 +1,2162 @@
+{
+  "meta": {
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "engines": {
+      "cpython": "3.14.7",
+      "pcre2": "0.7.1",
+      "java": "openjdk version \"11.0.24\" 2024-07-16 LTS"
+    },
+    "seed": 7,
+    "date": "2026-10-06"
+  },
+  "rows": [
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*(#\\s)?\\s*(#+)([^#\\n]+)\\s*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.02"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+);\\s*(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<saml:NameID(.*)>.*</saml:NameID>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\n\\s*\n\\s*__plbnext__\\s*\n\\s*\n",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.05"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*>.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "/(\u5f00\u542f|\u5173\u95ed)\\s+(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(-?\\d+\\.?\\d*)((?:s|fs|ms|ns|ps|us)?)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.01"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[^\\s]+@[^\\s]+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.01"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)(\\](.*))",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(\\S+)\\s*(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.89"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?P<r_num>\\d{1,3})\\s(?P<reactants>[A-Z]\\w{0,3}(\\s\\+\\s[A-Z]\\w{0,3})*)\\s\n?(?P<products>(\\d(\\.(\\d{1,3}(E\\d{2})?)?)?\\s)?[A-Z]\\w{0,3}(\\s\n?(\\+|\\-)\n?\\s\n?(\\d(\\.(\\d{1,3}(E\\d{2})?)?)?\\s\n?)?[A-Z]\\w{0,3})*)?\\s\n?(?P<reaction_type>Photolysis|(\\d\\.\\d{3}E[+-]\\d{2}))",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(<li[^>]*>(.+)</li\\s*>)+",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(http*.*.rpm)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "ETOT\\s*([\\d]+)\\s*([.E\\d\\-+]+)\\s*([.E\\d\\-+]+)\\s*([.E\\d\\-+]+)\\s*([.E\\d\\-+]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "wall-clock hang after 0 timed input(s), longest 0 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Bootstrap v(\\d+\\.\\d+\\.\\d+).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.91"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*->(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)/(.*):(.*)-(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^Recommends:\\s*(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^Add:[ \t]*([\\d.]+)[ \t]*([\\d.]+)[ \t]*([\\d.]+)[ \t]*([\\d.]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 1 timed input(s), longest 256 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*%\\{([^\\}]+)\\}i",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "#\\s*(\\w+):\\s*(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(\\S+)\\s*=(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^Key: (.*), Value: (.*)\\n?$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\d+\\s+(\\d+\\.?\\d*)\\s+(\\d+\\.?\\d*)\\s+(\\d+\\.?\\d*)\\s+(\\d+\\.?\\d*)\\s*\\w?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "from\\s*__future__\\s*import\\s*\\w+.*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^([^<]+)[<]?(.*)[>]?$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)?(py)(\\d\\d)(.*)?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*/comments/.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^((get_|_|-).*|.*__.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\d+>\\s*Note: including file:(\\s+)(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+)\\[(\\d+)\\.(\\d+)\\](.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<class '\\w+.models.(\\w+)'>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "archive_.*\\.tar\\.bz2.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^-?[_a-zA-Z]+[_a-zA-Z0-9-]*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\\\\\s+(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\d+\\-.+)\\.ipynb(#.+)?$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<start>-?[0-9]*):(?P<end>-?[0-9]*):?(?P<step>-?[0-9]*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[A-Z0-9]+(:?_?[A-Z0-9])*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\(([^,]+),\\s+([^\\)]+)\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<textarea .*;\\\"/>(.+)</textarea>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*/(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+)\\'b.+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*link_check\\('(.*)'\\);return false;",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*class\\s*(\\w+).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 2 timed input(s), longest 3002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "unix://(.+)@(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Columns* [\\d]+[ through [\\d]+]?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<a[^>]*\\shref=['\"](.+)['\"][^>]*>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 8003 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^__[_A-Za-z0-9]*[A-Za-z0-9]+_?$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([^\\d]*)(\\d+)(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*:<Processing>:(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.03"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "b2g.*_dolphin_eng.*_nightly",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "</?\\w+[^>]*>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.87"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*-c\\s+(\\S+).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([a-zA-Z_]+[0-9a-zA-Z_\\.]*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s*(.*) \\(compatibility version (\\d+\\.\\d+\\.\\d+), current version (\\d+\\.\\d+\\.\\d+)\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": " (T[0-9][0-9]) *([0-9.]+)(\\w+) *",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "on_(.*)_.*\\(",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)(\\$(\\d+))(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?P<folder_name>[A-Z]{1,2}\\d+[\\w-]+)_[\\w-]+\\.(?P<extension>\\w{3})$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "__version__.*=.*([0-9]+)\\.([0-9]+)\\.([0-9]+).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*path\\s*=\\s*(.*)\\s*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1009 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\[\\s*(?P<num>\\d*)\\]\\s*(?P<content>.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\[(?P<percent>\\d+\\.\\d*)%\\]\\s+(?P<frame>\\d+)/(?P<frame_total>\\d+)\\s+frames,\\s+(?P<frame_rate>\\d+\\.\\d*)\\s+fps,\\s+(?P<bit_rate>[^,]+),\\s+eta\\s+(?P<eta>[\\d:]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<!\\s+([^<>]*)>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(\\d+\\w*)\\.\\s",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.86"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*)%([-]*)([0-9]*)([FDTN])(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:[!>]*)(>[^-]*)(?:-+)(.*)(?:\\.\\.\\..*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<h(\\d)>(.+href=\\\"#(.+)\\\".+)</h(\\d)>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 8005 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(<blockquote[^>]* class=\"imgur-embed-pub\"[^>]*>)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(\\s+|)([\\w]+)\\s+([\"\\']|)([\\w\\s,\\-\\.@\\:]+)([\"\\']|)([\\s+\\n]|,\\s+([\"\\']|)([\\w\\s,\\.@\\:]+)([\"\\']|)[\\s+\\n])",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s+(k\\(1/T\\)=A/T,A=([-+]{0,1}\\d+(?:(?:\\.)?(?:\\d+)?(?:[eE][-+]{0,1}\\d+)?)?))$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:\\s*,\\s*)+|\\s+",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 16 timed input(s), longest 50 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<correios>.*) - (?P<cidade>.*)/(?P<estado>\\w{2})",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<name>.+)-(?:(?P<epoch>[^:]+):)?(?P<version>[^-:]+)-(?P<release>[^-]+).(?P<arch>[^\\.]+).rpm",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<name>[a-zA-Z]+)(?P<value>.+)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^public class ([A-Za-z0-9_]+).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\w*(://)?[^/]*\\.xxx",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.82"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^.*\\s\\s*is",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?P<last>[^,]+)\\s*,\\s*(?P<first_names>[^\\,]*)(?P<extension>\\,?.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.01"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*(?P<start>-?\\d+)?\\s*(?P<separator>:|(\\.{2,}))?\\s*(?P<end>-?\\d+)?\\s*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 1 timed input(s), longest 252 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "url\\(\\s*[\"\\']?([^\\)\\'\\\"]+)[\"\\']?\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "pow\\(\\s*[^,]+\\s*,\\s*[^,\\)]+\\s*\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 2005 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+)\\[.+\\][^=]=[^=].+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "  File \"(.*)\", line (\\d*)(?:, in (.*))?$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*drop\\s+table\\s*(|if\\s+exists)\\s+(?P<table_name>[^\\s;]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.91"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Unknown (?:type|execution):\\s*([^=]+)=\\[",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<path>.*)\\((?P<filename>.*)\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*(\\d{6}[bfopd]).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\s*(\\S*(password|pwd|key|secret|god)\\S*)\\s*:\\s*)\\S+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^([-+][0-9.]+)([-+][0-9.]+).*/$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.88"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^Obsoletes:\\s*(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "https?://api\\.test\\.tst/v1/a/b/c/d/f/e\\?.*abcde=.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.04"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\"(.+)\" {(.+)}",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "ENC\\[.*,.*\\]",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s*if\\s*(.*\\s+)\\s*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 1 timed input(s), longest 254 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([ ]{2,})+",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 9 timed input(s), longest 38 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(unpack\\w*|unzip|unload|unarchive|unrar|untar|extract)\\s(?P<file>\\\"?.*\\\"?\\.(?P<format>\\w*))(\\s(to|here)\\s(?P<location>\\\"?.*\\\"?))?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ":\\d+\\.*\\d*;$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s*[\\n\\r]+\\s*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\[\\[(?:Fil|File|Image|Bilde):[^\\]]+\\|([^\\]]+)\\]\\]",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\$([a-zA-Z_\\|\\?]+[a-zA-Z_0-9\\|\\?\\-]*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([\\d\\.]*)(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[.!?\\\":].*\\S.*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\(\\d+\\) (.+) --> (.+): ([+-]?\\d+\\.\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^   ? ?(.*\\S)  +(\\S.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "-\\s*(?P<line>(?:def|block)(?:\\s+.*)?)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(-?\\d+)(?:\\s*(?:,|_|\\s)\\s*)(-?\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s*<(?P<tag>\\w+)\\s*(?P<attrs>[^>]+)?>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "diff --git a/(.*) b/.*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\d+).*atoms$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.88"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\w*\\d*:",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*(\\w+)\\s*=\\s*(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Mozilla/[\\d\\.]* \\(.*(?P<model>Windows|Mac|Linux).*\\) .* Chrome/(?P<version>[\\d\\.]*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<prespace>\\s*)(?P<dep>([^\\s]+(.+\\))?))(?P<ver>\\s*[<>=!]+\\s*[^\\s]+)?(?P<postspace>\\s*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.64"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\S*)-(\\S*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^   ([\\s\\*]) -\\s*(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+)c\\+\\+(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "PDB:(.+[,]{0,1})+\\)",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 11 timed input(s), longest 27 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\s*\\r\\n){2,}",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "growth 1.26x per character"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?P<major>\\d+)(\\.(?P<minor>\\d+))?(\\.(?P<micro>\\d+))?(?P<extraversion>.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^.*papis-(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.01"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<ipaddress>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}) - - \\[(?P<dateandtime>\\d{2}\\/[a-z]{3}\\/\\d{4}:\\d{2}:\\d{2}:\\d{2} (\\+|\\-)\\d{4})\\] ((\\\"(GET|POST) )(?P<url>.+)(http\\/1\\.1\")) (?P<statuscode>\\d{3}) (?P<bytessent>\\d+) ([\"](?P<refferer>(\\-)|(.+))[\"]) ([\"](?P<useragent>.+)[\"])",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(paleo|chron)(\\d+)(model|measurement)(\\d+)(ensemble|summary|distribution)?(\\d+)?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\$xpaget\\s+ds9\\s+(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[0-9]{2}([0A-Z\\-]+)[0-9]+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "SELECT.*\\{.*\\}.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[\\^]?/([^/]*)/?([^/]*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\d.*\\s+\\d{1,2}:\\d{2}:\\d{2}",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\s*\b+\n*\\s*)+",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 12 timed input(s), longest 38 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(https?://.+/api[^?]*)/([a-z_-]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[^ ]*[ ]*([\\d]+).*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 2002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^{(\\S+)}(\\S+)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([+-]?\\d+)[\\.]?\\d*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "exp=(\\d+\\.\\d+)&data=(.+)&digest=(\\S*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".* week of (.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "var clicky_custom = {.*\"var1\": \"val1\", \"var2\": \"val2\".*};",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "({(\\w+)[^}]*})",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.88"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<div class=\"zotcli-note\">.*<p .*title=\"([A-Za-z0-9+/=\\n ]+)\">.*</div>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([0-9]+\\.?[0-9]*)(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 2002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<(.*)#.*>`_",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<th.*sortable.*>.*Name.*</th>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*While processing work with target:.*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\d+.\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<key>\\*?)(?P<name>[^*].+) \\{label:\"(?P<type>.+)\"\\}",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\|\\||\\s*\\n+\\s*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\s+[quote]*\\s+)?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s*if.*({.*)?$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^License:\\s*(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "H?E?T?ATO?M\\s+\\d+.+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*ftp.*)|(.*http.*)|(.*part05.*)|(.*chapter.*)|(.*PS3.*)|(.*DCM.*)|(.*glossentry.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^.*\\sname=\"([^\"]+)\".*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^function\\s*(\\S.+)\\s*=\\s*(\\S+)\\s*\\((.*)\\)[\\r\\n|\\n]",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.02"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^([^ ]+) = ([^\\:]+):\\s*(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?:(?:\\*[ \\t]*){3,}|(?:_[ \\t]*){3,}|(?:-[ \\t]*){3,})[ \\t]*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(\\.+)(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*)#(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "released on (\\w+\\s+\\d+\\w+\\s+\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(zc.buildout|setuptools)-\\d+[.]\\d+\\S*-py\\d.\\d.egg",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[\\D\\.]+\\.+(\\d+)\\.(\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*-r\\s*(?P<filename>.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<input.*maxlength=\"4\".*name=\"date_year\"",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?P<name>[a-zA-Z0-9_]+){(?P<labels>[a-zA-Z0-9]+=\\\".*\\\")+(?:,+)?(?:\\ +)?} (?P<value>[0-9.E]+)$",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*<>(.+)</phaseEncodeDirectionSign>.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^wordlist_([\\w-]+)\\.[\\w][\\w\\.]+[\\w]+$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[\\w.-]+@[\\w.-]+\\.[\\w.-]+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\(\\s*(\\d*).\\s*(\\d*).\\s*(\\d)*\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 2 timed input(s), longest 1002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "http.?://.*questions/\\d.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:(?:\\d+-\\d+|\\d+),?)+",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 23 timed input(s), longest 25 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s*array\\[([\\s\\w\\.]+(?:\\s*,\\s*[\\s\\w\\.]+)*)\\]\\s+of\\s+(.+)\\s*",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 9 timed input(s), longest 44 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "#EXTINF:.*,(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*)!(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[_.0-9a-z-]+@([0-9a-z][0-9a-z-]+.)+[a-z]{2,4}$",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "growth 1.31x per character"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^((?:\\\\.|[^ )])+) ?(.*)$",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 11 timed input(s), longest 48 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Expected 'instance_method' to be called 1 time instead of 2 times on <InstanceDouble of <class 'doubles.testing.User'> object at .+> with any args, but was not. \\(.*doubles/test/expect_test.py:\\d+\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\n    [^\\n]*\\|[^\\n]*\\n\n    (?:\n        [:\\t -|]*\\|[:\\t -|]*\n    )\n    (?:\\n[^\\n]*\\|[^\\n]*)*\n",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*): (.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[\\\\\\s+|-]*(?P<group_id>[^:]+):(?P<artifact_id>[^:]+):[^:]+:(?P<version>[^:\\s]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^ *\\t*(?:import|from)[ ]+(?:(\\w+)[, ]*)+",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 23 timed input(s), longest 30 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\; (K\\d+)\\s+(.+) \\[EC\\:(.+)\\]",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\(\\s*(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.92"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[-+]?(\\d*\\.?)?\\d+[eE][-+]?\\d+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\d+\\.\\d+(?:\\.\\d+)?).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:\\\\.|[^\\|])+",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 12 timed input(s), longest 51 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Received (\\d+) broadcasts.*(\\d+).*multicasts",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 2022 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+)!(.+)@(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*Time.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Dlvl:(?P<dlvl>\\S+)\\s*\\$:(?P<money>\\d+)\\s*HP:(?P<hp>\\d+)\\((?P<hp_max>\\d+)\\)\\s*Pw:(?P<pw>\\d+)\\((?P<pw_max>\\d+)\\)\\s*AC:(?P<ac>\\d+)\\s*Exp:(?P<exp>\\d+)\\s*(?P<hunger>Satiated|Hungry|Weak|Fainting)?\\s*(?P<stun>Stun)?\\s*(?P<conf>Conf)?\\s*(?P<blind>Blind)?\\s*(?P<burden>Burdened|Stressed|Strained|Overtaxed|Overloaded)?\\s*(?P<hallu>Hallu)?\\s*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "wall-clock hang after 0 timed input(s), longest 0 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Uitspraak:.+\\[(.+)\\]",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)\\s+=\\s+(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.23"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*appellations.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*header.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "https?://s3[.-](.*)\\.amazonaws.com/(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ":(.+):(.+):(.+):(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 1 timed input(s), longest 503 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^s3fs:///*([^/]*)/?(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Quality[=:](?P<quality>\\d+).*Signal level[=:](?P<siglevel>\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.89"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "class ([\\w]+)[^{]+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "https://manga\\.madokami\\.al/Manga/.*/.*/.*\\..*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 4033 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[-+]?\\d+[\\.]?\\d*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*\\s+(?P<unknown_drops>\\d+) unknown protocol drops.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "sso=(.+)&sig=(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([^\\d]*)(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "ddf--entities--([\\w_]+)(--[\\w_]*)?-?.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.91"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "<title>([^<]*)</title>.*<h2>Details:</h2>(.*)(<hr size=\"1\" noshade>)?</body>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 36016 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.+)\\[(.+)\\]$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^.*The master node was terminated.*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[ ]+(?P<desc>.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(://).*(@).*(/).*(\\?)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\w+\\s+\\[.*\\]\\s+\".*\")\\s+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*(\\d+)\\s+(\\d+)\\s+(.*)\\s*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1007 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<state>[ACDEF])(?P<len>\\d*)(?P<msg>[\\w\\s]*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.92"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "{\\s*(\"Fn::GetAtt\")\\s*:\\s*\\[\\s*(\"\\S+\")\\s*,\\s*(\"\\S+\")\\s*\\]\\s*}",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*(?P<orig_key>\\w+)\\s*=\\s*(?P<value>.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Author:\\s+(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\.\\.\\.\\s+(.*)\\s+\\.\\.\\.",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1004 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^#+\\s*(.+[^#\\s])\\s*#*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*.newrelic.com/.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*) \\(([^\\W]+)\\): (.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\d+)[.](saas~|)(\\d*)(\\w*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([ \\t]*\\.\\.[ \\t]*)(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([a-zA-Z]+)://([a-zA-Z0-9\\.\\-_]+)(:[0-9]+)?/?(.+)?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\(arn:*.*\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.89"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*Cisco IOS Software,.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.03"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "({.*})?(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s+(Given|When|Then) (.+)\\s+$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.03"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[, \\t]+\\$([a-z][a-z_0-9]*)(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)\\s+\\((\\d+)\\)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.22"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<func>.*)\\((?P<json>.*)\\);",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "except \\([^()]+\\), *[^:]+:",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.90"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<tag>.+)\\s+\\d+:.+$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.94"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*%i\\[.+\\].*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "https?://[^/]*(/.*reset/\\S*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*>=.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "ENC\\[(.*),(.*)\\]",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "v([0-9]+.[0-9]+.[0-9]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 2 timed input(s), longest 1003 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^## OPTION ([a-z_]*): \\(type: ([a-z_]*), default: '(.*)', tooltip: '(.*)'\\)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?P<arg>\\w+)(|.)+[\\:]\\ (?P<help>.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^  built on (.*) with (.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*how.*(set|change|choo?se|make|pick).*(name|nick)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?:(?P<username>[^:]+)(?:\\:(?P<password>[^@]+))?@)?(?P<netloc>.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:Enable V2:)\\s*(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^>>> (\\d+).\\d+ <<<",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[http|https]://(www.)?github.com/.*/.*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*)[@:](.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "#\\s*cmd:\\s*(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([\\w\\-_\\'\u2019]*[^\\d\\s\\W]+[\\w\\-_\\'\u2019]*|{[^\\s]*})",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^.*\\w+\\s*:\\s*\\w+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.88"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s(\\d+[\\d, .]*)\\s",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\.zip|\\.tar\\.gz|\\.tgz|\\.tar\\.bz2|\\.doc\\.zip|\\.macosx-\\d+.*|\\.linux-.*|\\.[^\\.]*\\.rpm|\\.win-amd68-py[23]\\.\\d\\..*|\\.win32-py[23]\\.\\d\\..*|\\.win.*\\..*|-(?:py|cp|ip|pp|jy)[23][\\d\\.]*.*\\..*|)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+)\\t(.+)\\t(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 2002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:[=!]=|is(?:\\s+not)?)\\s*type(?:s.\\w+Type|\\s*\\(\\s*([^)]*[^ )])\\s*\\))",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[a-zA-Z_]+[a-zA-Z0-9_]*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.93"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*delay=(?P<send_delay>[^,]+),.*status=(?P<status>(sent|deferred|bounced))",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*)-(.*)-(.*)-(.*)-(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "wall-clock hang after 0 timed input(s), longest 0 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^.*\\\\(.*)_company.html$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[0-9]+ vCPUs?, [0-9]+ GB RAM, and (?P<gpu_cores>[0-9]+) dies? of (?P<gpu_type>.+) with (?P<gpu_ram>.+) of RAM",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Download&nbsp;WordPress&nbsp;([0-9]+\\.[0-9]+\\.?[0-9]*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:\n                              ((?:(?:\\d+(?:-\\d+)?),?)+)  # numbers and ranges divied by commas (1)\n                              |                          # or\n                              (\\*)                       # asterisk (2)\n                            )\n                            (?:/(\\d+))?                 # divisor part (3 - number part)\n                            $",
+      "degree": "EXP",
+      "confirmed": false,
+      "evidence": "no step above 1 ms"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.+movie)(.+)(\\..{3})$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(\\d+\\.\\d+)\\.\\d+(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*---(.*)---\\s*(.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "__version__\\W*=\\W*\\'(\\d+\\.\\d+\\.\\d+)\\'",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.25"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s*for\\s+.+\\s+in\\s+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1004 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^#import[\\s\t]*([^\\s^\t]*)[\\s\t]*$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.88"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^[^ ]*/([^ ]+)( .*)?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.+)(\\=[\\?\\*]*)(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "__version__.*\\s*=\\s*[']([^']+)[']",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.16"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([\\w\\s\\.\\-\\_\\:\\/\\\\\\\"\\'\\`\\#\\+\\{\\}\\[\\]\\;\\*]+)\\(?([\\w\\s\\.\\-\\_\\:\\/\\\\\\\"\\'\\`\\#\\+\\{\\}\\[\\]\\;\\*]+)?\\)?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\s*\\#?\\s*}}}",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.21"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?P<address>[^\\s]+)\\s+(?P<time>\\d+\\.\\d+)\\s+(?P<pointers>\\d+G?)\\s+(?P<ban>.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Author: (.* <.*@.*>)\\n",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(.*)(?:ASPSESSIONID[a-zA-Z]{8}=[a-zA-Z]{24})(?:&(.*))?$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 4 timed input(s), longest 94002 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "data:\\s*(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([-+]?[0-9]*\\.?[0-9]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\{\\s*((\\\".*\\\"|\\'.*\\'|\\S*)\\s*,\\s*)*(\\\".*\\\"|\\'.*\\'|\\S*)\\s*\\}$",
+      "degree": "EXP",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 8 timed input(s), longest 42 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "[\\w+\\.]+\\w+",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.02"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*SUBLEVEL\\s=\\s(\\d*)[\\s\\n]+.*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.00"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\d+/\\d+/\\d+ \\d+.\\d+.\\d+$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 2 timed input(s), longest 1008 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^\\s+(\\d+)\\s+(\\d+)?\\s+(\\d+)?\\s+(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 2 timed input(s), longest 504 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(?:ra = )([-]?[0-9]*[.]?[0-9]*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "pip install([\\w -.=:/\"]*) (?P<packagename>\\w+)==(?P<version>\\d.+)\\n",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*Bug-Url: https?://bugzilla.*/[^\\d]*(?P<bugid>\\d+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 1 timed input(s), longest 6251 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^.*filename=\"?(.*)\"$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(/data/us-.*/rack[0-9]{3})/.+$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\\\(.*){(.*)}",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "@link([\\s/*]+[\\w\\s,.:#()*]+[\\s/*]*[\\w():#]+[\\s/*]*)@endlink",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "input over the per-input limit after 3 timed input(s), longest 1006 chars"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "((.+)\\@)?(.+)?",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "Description:\\s*(.*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "\\[([^\\*=]*)([\\*=]*)([^\\*=]*)\\]$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "value=\\'(.*\\$.*)\\'",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.99"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*name *= *(?P<name>[^\\(\\),]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "([0-9A-F]+)\\.{2}([0-9A-F]+);\\s+(.+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(\\d+)x(\\d+),?(\\w*)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.91"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^([^:]+)(?::([^:]+))?@(.+)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.96"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "--file\\s+([^\\s]+).*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.95"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".+\\s+time=([\\d:.]+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.29"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)\\s+<unfinished \\.\\.\\.>",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 2.25"
+    },
+    {
+      "kind": "flagged",
+      "pattern": ".*[A-Za-z].*",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.97"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "^(?P<instance>.*)/(?P<db>.*)$",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.98"
+    },
+    {
+      "kind": "flagged",
+      "pattern": "(.*)(\\s+)",
+      "degree": "POLY",
+      "confirmed": true,
+      "evidence": "log-log slope 1.91"
+    }
+  ],
+  "summary": {
+    "corpus": "datasets/corpus/pypi-uniquePatterns.jsonl (see SOURCE.md)",
+    "patterns_total": 63352,
+    "status_counts": {
+      "analysed": 50567,
+      "unsupported": 12722,
+      "parse_error": 63
+    },
+    "unsupported_syntax": 12722,
+    "unsupported_reasons": {
+      "lazy/possessive quantifier": 6106,
+      "anchor not at pattern boundary": 1915,
+      "unsupported escape \\b": 1244,
+      "unsupported group extension (?<": 931,
+      "unsupported group extension (?!": 475,
+      "unsupported group extension (?=": 319,
+      "unsupported escape \\A": 300,
+      "unsupported group extension (?i": 264,
+      "unsupported escape \\Z": 214,
+      "unsupported escape \\u": 190,
+      "anchor inside a top-level alternation": 181,
+      "unsupported group extension (?m": 147,
+      "unsupported group extension (?s": 106,
+      "unsupported group extension (?x": 92,
+      "named backreference (?P=name)": 45
+    },
+    "analysed": 50567,
+    "degrees": {
+      "LIN": 43761,
+      "POLY": 6081,
+      "EXP": 367,
+      "UNKNOWN": 206,
+      "N/A": 152
+    },
+    "analysis_runtime_s": 122.72,
+    "analysis_mean_ms": 15.497,
+    "workers": 8,
+    "flagged_total": 6448,
+    "replay_sample": 300,
+    "replay_confirmed": 295,
+    "precision_estimate": 0.9833,
+    "lin_total": 43761,
+    "lin_fuzz_sample": 500,
+    "lin_fuzz_slow_found": 0,
+    "lin_false_negative_rate_lower_bound": 0.0,
+    "note": "precision is on a seeded sample of flagged patterns; the LIN rate is a lower bound (fuzzing can miss); unsupported patterns are not counted as passes"
+  }
+}

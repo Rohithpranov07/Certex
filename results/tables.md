@@ -88,3 +88,26 @@ Source: `e5_differential.json` summary.per_mode
 
 Source: `e6_d5.json` rows[]
 
+## Public corpus (E1b)
+
+| metric | value |
+|---|---|
+| corpus | datasets/corpus/pypi-uniquePatterns.jsonl (see SOURCE.md) |
+| patterns_total | 63352 |
+| unsupported_syntax | 12722 |
+| analysed | 50567 |
+| analysis_runtime_s | 122.72 |
+| analysis_mean_ms | 15.497 |
+| workers | 8 |
+| flagged_total | 6448 |
+| replay_sample | 300 |
+| replay_confirmed | 295 |
+| precision_estimate | 0.9833 |
+| lin_total | 43761 |
+| lin_fuzz_sample | 500 |
+| lin_fuzz_slow_found | 0 |
+| lin_false_negative_rate_lower_bound | 0.0 |
+| note | precision is on a seeded sample of flagged patterns; the LIN rate is a lower bound (fuzzing can miss); unsupported patterns are not counted as passes |
+
+Source: `e1b_corpus.json` summary
+
