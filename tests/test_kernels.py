@@ -136,3 +136,42 @@ def _pike(tree):
 def test_differential_pike():
     cases, bad = differential_run(kernel_matcher(_pike, grouped=True), BREF_PATTERNS)
     assert cases > 0 and bad == 0
+
+
+from certex.analysis.ambiguity import analyse_ambiguity
+from certex.analysis.types import infer_type
+from certex.backend.synth import synthesise
+
+from .conftest import tree_of
+
+
+def _choice(p: str, profile: str = "cpython"):
+    tree = tree_of(p, profile)
+    core = core_of(p, profile)
+    bv = analyse_backrefs(tree)
+    av = None if bv else analyse_ambiguity(core)
+    return synthesise(tree, core, infer_type(core), av, bv)
+
+
+@pytest.mark.parametrize("p,kernel,fallback,power", [
+    ("abc|def|ghi", "aho-corasick", "shift-and", 1),
+    ("(ab|cd)+e", "shift-and", "shift-and", 1),
+    ("(a+)+$", "lazy-dfa", "shift-and", 1),
+    (r"(a+)\1", "pike-vm-mfa", None, 3),
+    (r"(x+)(y+)\1\2", "pike-vm-mfa", None, 5),
+    ("((ab)|(cd))+", "word-break", "shift-and", 1),
+    ("(x+x+)+y", "lazy-dfa", "shift-and", 1),
+    (r"^\d+$", "lazy-dfa", "shift-and", 1),
+])
+def test_synth(p, kernel, fallback, power):
+    ch = _choice(p)
+    assert ch.kernel.name == kernel
+    assert (ch.fallback.name if ch.fallback else None) == fallback
+    assert ch.budget["power"] == power and ch.budget["c"] == 8
+    assert ch.rule and ch.bound
+
+
+def test_synth_row5_and_row6():
+    assert _choice("(ab|cd)+e").rule.startswith("LIN")
+    big = _choice("(a|b|c)*" + "x" * 70 + "(a+)+$")
+    assert big.kernel.name == "lazy-dfa" and big.fallback.name == "bitparallel-glushkov"
