@@ -18,7 +18,14 @@ from collections import deque
 from collections.abc import Iterator
 from dataclasses import dataclass
 
-from certex.analysis.automata import PathLimitExceeded, PathPreservingNFA, Thompson, path_preserving
+from certex.analysis.automata import (
+    START,
+    Glushkov,
+    PathLimitExceeded,
+    PathPreservingNFA,
+    Thompson,
+    path_preserving,
+)
 from certex.frontend.ir import CharSet, Node
 
 EXP, POLY, LIN, UNKNOWN = "EXP", "POLY", "LIN", "UNKNOWN"
@@ -289,16 +296,50 @@ def _ida_candidates(g: _PairGraph, clock: _Clock) -> Iterator[tuple[str, str]]:
                 yield g.prefix_to((p, p)), "".join(reversed(word))
 
 
+def reject_suffix(g: Glushkov, word: str, cap: int = 20000) -> str | None:
+    """Shortest suffix ``s`` such that ``word + s`` is rejected, or None within ``cap`` subsets."""
+    states: frozenset[int] = frozenset({START})
+    for c in word:
+        states = g.step(states, c)
+    if not states & g.accept:
+        return ""
+    seen = {states}
+    queue: deque[tuple[frozenset[int], str]] = deque([(states, "")])
+    reps = g.alphabet_reps()
+    while queue:
+        cur, suffix = queue.popleft()
+        for c in reps:
+            nxt = g.step(cur, c)
+            if nxt in seen:
+                continue
+            if not nxt & g.accept:
+                return suffix + c
+            if len(seen) >= cap:
+                return None
+            seen.add(nxt)
+            queue.append((nxt, suffix + c))
+    return None
+
+
 def analyse_ambiguity(core: Node, timeout: float = 2.0, pump_reps: int = 8) -> AmbVerdict:
-    """Detect EDA/IDA. (Exploitability confirmation is added in T2.3.)"""
+    """Classify ``core`` as EXP / POLY / LIN / UNKNOWN with an attack when exploitable."""
     clock = _Clock(timeout)
     try:
         nfa = path_preserving(Thompson(core))
         g = _PairGraph(nfa, clock)
-        for prefix, pump in _eda_candidates(g, clock):
-            return AmbVerdict(EXP, Attack(prefix, pump, ""))
-        for prefix, pump in _ida_candidates(g, clock):
-            return AmbVerdict(POLY, Attack(prefix, pump, ""))
+        glushkov = Glushkov(core)
+        ambiguous = False
+        for degree, candidates in ((EXP, _eda_candidates(g, clock)),
+                                   (POLY, _ida_candidates(g, clock))):
+            for prefix, pump in candidates:
+                ambiguous = True
+                suffix = reject_suffix(glushkov, prefix + pump * pump_reps)
+                clock.tick()
+                if suffix is not None:
+                    return AmbVerdict(degree, Attack(prefix, pump, suffix))
+        if ambiguous:
+            return AmbVerdict(LIN, unexploitable=True,
+                              reason="ambiguous but no rejecting suffix")
         return AmbVerdict(LIN)
     except PathLimitExceeded as e:
         return AmbVerdict(UNKNOWN, reason=f"path limit: {e}")
