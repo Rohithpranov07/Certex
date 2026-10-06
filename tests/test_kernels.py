@@ -175,3 +175,17 @@ def test_synth_row5_and_row6():
     assert _choice("(ab|cd)+e").rule.startswith("LIN")
     big = _choice("(a|b|c)*" + "x" * 70 + "(a+)+$")
     assert big.kernel.name == "lazy-dfa" and big.fallback.name == "bitparallel-glushkov"
+
+
+import certex  # noqa: E402
+
+
+def _e2e_factory(p):
+    compiled = certex.compile(p)
+    return lambda s, mode: certex.match(compiled, s, mode).matched
+
+
+def test_e2e_governor_differential():
+    cases, bad = differential_run(_e2e_factory, all_patterns() + BREF_PATTERNS)
+    assert cases >= 55000
+    assert bad == 0
