@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CERTEX Demo</title>
+  <meta name="description" content="Type a regular expression and CERTEX proves its worst case, builds a working attack, and runs every match on a kernel that cannot hang.">
+  <meta name="theme-color" content="#131313">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233cffd0'/%3E%3Cpath d='M9 16h14M16 9v14' stroke='%23131313' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Substitutes named in DESIGN-theverge.md §3: Anton for Manuka, Space Grotesk for PolySans,
+       JetBrains Mono for PolySans Mono, Newsreader for FK Roman. -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#analyze">Skip to the analyzer</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="CERTEX home">certex</a>
+      <nav class="nav__links" aria-label="Sections">
+        <a class="mono-link" href="#analyze">Analyze</a>
+        <a class="mono-link" href="#race">Race</a>
+        <a class="mono-link" href="#certificate">Certificate</a>
+        <a class="mono-link" href="#evidence">Evidence</a>
+      </nav>
+      <a class="btn btn--mint nav__cta" href="#analyze">Try a pattern</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Masthead -->
+    <section class="masthead wrap" aria-labelledby="wordmark">
+      <p class="whisper">A complexity-certifying regex compiler</p>
+      <h1 class="wordmark" id="wordmark">CERTEX</h1>
+      <div class="masthead__grid">
+        <p class="deck-wide">
+          It decides how slow a pattern can get before any input arrives, proves it with a
+          working attack string, and runs every match on a kernel that cannot backtrack.
+        </p>
+        <figure class="invariant">
+          <figcaption class="pill pill--ink">The safety invariant</figcaption>
+          <blockquote class="serif-pull">
+            No match ever runs on a backtracking engine. Every match runs under the step budget
+            of a signed certificate, and on overrun the governor falls back to a linear kernel
+            or rejects. It never hangs.
+          </blockquote>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Analyzer -->
+    <section class="section wrap" id="analyze" aria-labelledby="analyze-h">
+      <div class="section__head">
+        <h2 class="h-large" id="analyze-h">Analyze a pattern</h2>
+        <p class="body-compact muted">Python <code>re</code> semantics on ASCII text. Lookaround,
+          lazy quantifiers, inline flags and <code>\b</code> are outside the supported subset
+          and are reported with their offset.</p>
+      </div>
+
+      <form class="analyzer" id="analyzer" autocomplete="off" novalidate>
+        <label class="field-label" for="pattern">Pattern</label>
+        <div class="pattern-row">
+          <span class="slash" aria-hidden="true">/</span>
+          <input class="input input--pattern" id="pattern" name="pattern" type="text"
+                 spellcheck="false" autocapitalize="off" maxlength="500"
+                 value="(a+)+$" aria-describedby="pattern-error">
+          <span class="slash" aria-hidden="true">/</span>
+        </div>
+        <p class="field-error" id="pattern-error" role="alert" hidden></p>
+
+        <div class="analyzer__controls">
+          <div class="tabs" role="radiogroup" aria-label="Engine profile" id="profile-tabs">
+            <span class="tabs__label">Engine</span>
+            <button type="button" class="tab" role="radio" aria-checked="true" data-profile="cpython">CPython</button>
+            <button type="button" class="tab" role="radio" aria-checked="false" data-profile="pcre2">PCRE2</button>
+            <button type="button" class="tab" role="radio" aria-checked="false" data-profile="java">Java</button>
+            <button type="button" class="tab" role="radio" aria-checked="false" data-profile="none">No profile</button>
+          </div>
+          <button class="btn btn--mint" type="submit" id="analyze-btn">Analyze pattern</button>
+        </div>
+
+        <div class="examples">
+          <span class="tabs__label">Examples</span>
+          <ul class="examples__list" id="examples">
+            <li><button type="button" class="chip" data-pattern="(a+)+$" data-profile="cpython"><span class="chip__tag">Nested repeat</span><code>(a+)+$</code></button></li>
+            <li><button type="button" class="chip" data-pattern="(0|[0-9])+$" data-profile="none"><span class="chip__tag">False alarm</span><code>(0|[0-9])+$</code></button></li>
+            <li><button type="button" class="chip" data-pattern="\s*#?\s*$" data-profile="cpython"><span class="chip__tag">Quadratic</span><code>\s*#?\s*$</code></button></li>
+            <li><button type="button" class="chip" data-pattern="^([a-z0-9]+[-_.]?)*[a-z0-9]+@" data-profile="cpython"><span class="chip__tag">Email check</span><code>^([a-z0-9]+[-_.]?)*[a-z0-9]+@</code></button></li>
+            <li><button type="button" class="chip" data-pattern="(\w+)\s\1" data-profile="cpython"><span class="chip__tag">Backreference</span><code>(\w+)\s\1</code></button></li>
+            <li><button type="button" class="chip" data-pattern="^\d{3}-\d{4}$" data-profile="cpython"><span class="chip__tag">Safe</span><code>^\d{3}-\d{4}$</code></button></li>
+          </ul>
+        </div>
+      </form>
+
+      <div class="report" id="report" aria-live="polite">
+        <div class="empty" id="report-empty">
+          <p class="h-medium" id="report-empty-title">Pick an example or type a pattern, then choose Analyze pattern.</p>
+          <p class="body-compact muted" id="report-empty-deck">The report shows the worst-case class, the attack string
+            that triggers it, and the kernel CERTEX picks to run it safely.</p>
+        </div>
+
+        <article class="verdict" id="verdict" hidden>
+          <p class="pill" id="verdict-tag"></p>
+          <p class="verdict__degree" id="verdict-degree"></p>
+          <p class="verdict__headline" id="verdict-headline"></p>
+          <p class="verdict__deck" id="verdict-deck"></p>
+          <div class="attack" id="attack" hidden>
+            <p class="field-label field-label--ink">Attack string</p>
+            <p class="attack__formula"><code id="attack-prefix"></code><span class="attack__op">+</span><code id="attack-pump"></code><span class="attack__op">&times; k +</span><code id="attack-suffix"></code></p>
+            <p class="attack__example">At k = 20: <code id="attack-example"></code></p>
+          </div>
+        </article>
+
+        <ol class="stream" id="stream" hidden aria-label="Compilation pipeline"></ol>
+      </div>
+    </section>
+
+    <!-- Race -->
+    <section class="section wrap" id="race" aria-labelledby="race-h">
+      <div class="section__head">
+        <h2 class="h-large" id="race-h">Run the attack</h2>
+        <p class="body-compact muted">The same input goes to CPython's backtracking <code>re</code>
+          (in its own process, killed after a time limit) and to the CERTEX kernel under its
+          certificate. Both timings are measured live on this machine.</p>
+      </div>
+
+      <div class="race" id="race-panel">
+        <div class="empty" id="race-empty">
+          <p class="h-medium" id="race-empty-title">Analyze a pattern first.</p>
+          <p class="body-compact muted" id="race-empty-deck">Only exponential and polynomial
+            patterns have an attack to run.</p>
+        </div>
+
+        <div class="race__body" id="race-body" hidden>
+          <div class="race__controls">
+            <label class="field-label" for="pump">Pump count <span class="k-value" id="pump-out">24</span></label>
+            <input type="range" id="pump" min="1" max="32" value="24" class="slider">
+            <p class="body-compact muted" id="pump-length"></p>
+            <button class="btn btn--mint" type="button" id="race-btn">Run both engines</button>
+          </div>
+
+          <div class="lanes">
+            <div class="lane lane--cpython">
+              <p class="lane__name">CPython <code>re</code> &middot; backtracking</p>
+              <p class="lane__time" id="cp-time">&mdash;</p>
+              <div class="bar" aria-hidden="true"><span id="cp-bar"></span></div>
+              <p class="lane__meta" id="cp-meta">Not run yet</p>
+            </div>
+            <div class="lane lane--certex">
+              <p class="lane__name">CERTEX &middot; governed kernel</p>
+              <p class="lane__time" id="cx-time">&mdash;</p>
+              <div class="bar" aria-hidden="true"><span id="cx-bar"></span></div>
+              <p class="lane__meta" id="cx-meta">Not run yet</p>
+            </div>
+          </div>
+          <p class="race__ratio" id="race-ratio" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <form class="matchbox" id="matchbox" autocomplete="off">
+        <h3 class="h-small">Match your own text</h3>
+        <p class="body-compact muted">Runs through the governor with the certificate above.</p>
+        <label class="field-label" for="match-text">Text</label>
+        <textarea class="input input--text" id="match-text" rows="2" spellcheck="false">aaaaaaaaaaaaaaaaaaaaaaaaaaaaab</textarea>
+        <div class="analyzer__controls">
+          <div class="tabs" role="radiogroup" aria-label="Match mode" id="mode-tabs">
+            <span class="tabs__label">Mode</span>
+            <button type="button" class="tab" role="radio" aria-checked="true" data-mode="full">Full match</button>
+            <button type="button" class="tab" role="radio" aria-checked="false" data-mode="match">Match</button>
+            <button type="button" class="tab" role="radio" aria-checked="false" data-mode="search">Search</button>
+          </div>
+          <button class="btn btn--slate" type="submit" id="match-btn">Match text</button>
+        </div>
+        <p class="match-result" id="match-result" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Certificate -->
+    <section class="section wrap" id="certificate" aria-labelledby="cert-h">
+      <div class="section__head">
+        <h2 class="h-large" id="cert-h">The certificate</h2>
+        <p class="body-compact muted">HMAC-signed JSON. The governor refuses to run a match
+          whose certificate does not verify.</p>
+      </div>
+      <div class="cert">
+        <div class="cert__bar">
+          <p class="pill pill--outline" id="cert-status">No certificate yet</p>
+          <div class="cert__actions">
+            <button class="btn btn--outline" type="button" id="copy-cert" disabled>Copy JSON</button>
+            <button class="btn btn--outline" type="button" id="download-cert" disabled>Download</button>
+          </div>
+        </div>
+        <pre class="cert__json" id="cert-json" tabindex="0" aria-label="Certificate JSON">Analyze a pattern to see its signed certificate.</pre>
+      </div>
+    </section>
+
+    <!-- Evidence -->
+    <section class="section wrap" id="evidence" aria-labelledby="evidence-h">
+      <div class="section__head">
+        <h2 class="h-large" id="evidence-h">The evidence</h2>
+        <p class="body-compact muted" id="evidence-meta">Read from <code>results/*.json</code>,
+          produced by <code>certex bench --all</code>.</p>
+      </div>
+      <div class="tiles" id="tiles">
+        <p class="body-compact muted">Loading results&hellip;</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p class="brand brand--footer">certex</p>
+      <div class="footer__cmds">
+        <p class="field-label">From the terminal</p>
+        <pre class="footer__code"><code>certex compile '(a+)+$'
+certex check patterns.txt
+certex match '(\w+)\s\1' 'hello hello'
+python demo/server.py</code></pre>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

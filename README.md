@@ -45,6 +45,20 @@ c.degree, c.choice.kernel.name, c.types.cls      # ('EXP', 'lazy-dfa', 'EASY')
 certex.match(c, "a" * 40 + "b", "full")          # MatchResult(matched=False, kernel='lazy-dfa', ...)
 ```
 
+## Demo page
+
+```bash
+python demo/server.py              # http://127.0.0.1:8765  (--port 0 picks a free port)
+```
+
+A local web page over the same API, standard library only. Type a pattern (or pick an example),
+choose an engine profile, and it shows the verdict, the attack string, each pipeline stage
+(parse, profile and desugar, M2, M3, M4a, M4b, sign) and the signed certificate. "Run both
+engines" sends the attack at a chosen pump count to CPython `re` in a subprocess (killed after
+6 s) and to the governed CERTEX kernel, and shows both measured times. The evidence tiles read
+`results/*.json` when the page loads. The page follows `DESIGN-theverge.md`, with fonts loaded
+from Google Fonts.
+
 ## The safety invariant
 
 No CERTEX match ever runs on a backtracking engine. Every match runs on an automaton kernel
